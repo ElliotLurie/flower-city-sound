@@ -11,10 +11,10 @@
         <nav id="nav">
             <ul>
                 <li><a href="../view/about.php">About</a></li>
-                <li><a hred="../view/artistsAll.php">Artists</a></li>
+                <li><a href="../view/artistsAll.php">Artists</a></li>
                 <ul>
-                    <li><a href="../view/artistList_ind.php">Individual</a></li>
-                    <li><a href="../view/artistList_gr.php">Groups</a></li>
+                    <li><a href="../view/artistsList_ind.php">Individual</a></li>
+                    <li><a href="../view/artistsList_gr.php">Groups</a></li>
                 </ul>
                 <li><a href="../view/venuesList.php">Venues</a></li>
             </ul>
@@ -25,7 +25,7 @@
             <div></div>
         </div>
         <!-- LOGO IMAGE HERE -->
-        <p>LOGO[TEMP]</p>
+        <p><a href="../view/index.php">LOGO[TEMP]</a></p>
         <!-- SEARCH BAR HERE -->
         <div>
             <input type="text" placeholder="Search..."/>
