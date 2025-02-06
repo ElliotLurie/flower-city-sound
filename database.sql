@@ -2,10 +2,12 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE Page (
   id INT NOT NULL PRIMARY KEY,
-  bio TEXT NOT NULL,
+  blurb TEXT NOT NULL,
   external_links TEXT,
   last_modified TEXT NOT NULL,
-  sources TEXT
+  sources TEXT,
+  thumbnail BLOB,
+  title TEXT
 );
 
 CREATE TABLE Artist (
