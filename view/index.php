@@ -1,8 +1,15 @@
 <?php 
     $title = "Flower City Sound - Home";
     include("../view/include/header.php");
+    include("../controller/ArtistController.php");
+    $artistController = new ArtistController();
 ?>
 <div id="faDesc">
+    <!-- <h1>
+        <?php
+            // echo $artistController->getTestName();
+        ?>
+    </h1> -->
     <h1>Flower City Sound</h1>
     <h3>Featured Artists</h3>
     <p>

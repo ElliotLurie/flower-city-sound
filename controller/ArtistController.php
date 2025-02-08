@@ -1,10 +1,16 @@
 <?php
 // validate and sanitize
+include("../model/Artist.php");
 class ArtistController{
 
     public function __construct(){
 
     }
+
+    // function getTestName(){
+    //     $artist = new Artist();
+    //     return $artist->getTestName();
+    // }
 
     // user selects an artist from view
     // controller takes the input and sends it to model
