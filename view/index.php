@@ -1,12 +1,15 @@
 <?php 
+    // set title
     $title = "Flower City Sound - Home";
     include("../view/include/header.php");
+    // controller(s)
     include("../controller/ArtistController.php");
     $artistController = new ArtistController();
 ?>
 <div id="faDesc">
     <!-- <h1>
         <?php
+            // test retrieve from db
             // echo $artistController->getTestName();
         ?>
     </h1> -->
@@ -25,6 +28,7 @@
         mollit anim id est laborum.
     </p>
 </div>
+<!-- Featured Artists -->
 <div id="featuredArtists">
     <figure>
         <img src="../assets/images/placeholder_img.jpg" alt="Band One Img" width="200px">
@@ -40,6 +44,7 @@
     </figure>
 </div>
 <hr>
+<!-- Upcoming Events -->
 <div>
     <h2>Upcoming Events</h2>
     <div id="upcomingEvents">

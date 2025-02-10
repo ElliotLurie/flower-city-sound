@@ -1,6 +1,8 @@
 <?php 
+    // Set title
     $title = "Flower City Sound - Home";
     include("../view/include/header.php");
+    // controller(s)
     include("../controller/ArtistController.php");
     $artistController = new ArtistController();
     $artists = [];
@@ -9,6 +11,7 @@
     <h1>All Individual Artists</h1>
 </div>
 <div>
+    <!-- Filtering and sorting -->
     <form id="filter" method="get" onsubmit="return false">
         <div>
             <p>Filter:</p>
@@ -59,13 +62,25 @@
             <label for="recent">Recently Added</label>
         </div>
     </form>
-    <?php
-        if(isset($_POST['filter'])){
-            $artists = $artistController->getAllIndividual();
-            foreach ($artists as $a) {
-                
+    <!-- div that will hold returned artist's divs and format them into a grid using flex -->
+    <div class="listedEntries">
+        <?php
+            // pulls all individual artists and populates the page using an html 'template'
+            // will need pagination
+            if(isset($_POST['filter'])){
+                // return as array of artists
+                $artists = $artistController->getAllIndividual();
+                $echoStr = "";
+                // for each artist, populate a div with info
+                foreach ($artists as $a) {
+                    $echoStr = 
+                        "<div class='indEntries'>
+                            <h4>{$a['name']}</h4>
+                        </div>";
+                    echo $echoStr;
+                }
             }
-        }
-    ?>
+        ?>
+    </div>
 </div>
 <?php include("../view/include/footer.php") ?>

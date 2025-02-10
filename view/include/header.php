@@ -11,7 +11,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="../view/about.php">About</a></li>
-                <li><a href="../view/artistsAll.php">Artists</a></li>
+                <li>Artists</li>
                 <ul>
                     <li><a href="../view/artistsList_ind.php">Individual</a></li>
                     <li><a href="../view/artistsList_gr.php">Groups</a></li>
@@ -28,6 +28,8 @@
         <p><a href="../view/index.php">LOGO[TEMP]</a></p>
         <!-- SEARCH BAR HERE -->
         <div>
-            <input type="text" placeholder="Search..."/>
+            <form action="../view/search.php">
+                <input type="text" placeholder="Search..."/>
+            </form>
         </div>
     </div>
