@@ -6,29 +6,33 @@
     include("../controller/ArtistController.php");
     $artistController = new ArtistController();
 ?>
-<div id="faDesc">
+<div class="top" id="topHome">
     <!-- <h1>
         <?php
             // test retrieve from db
             // echo $artistController->getTestName();
         ?>
     </h1> -->
-    <h1>Flower City Sound</h1>
-    <h3>Featured Artists</h3>
-    <p>
-        PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit, sed do eiusmod tempor 
-        incididunt ut labore et dolore magna aliqua. Ut 
-        enim ad minim veniam, quis nostrud exercitation 
-        ullamco laboris nisi ut aliquip ex ea commodo 
-        consequat. Duis aute irure dolor in reprehenderit 
-        in voluptate velit esse cillum dolore eu fugiat 
-        nulla pariatur. Excepteur sint occaecat cupidatat 
-        non proident, sunt in culpa qui officia deserunt 
-        mollit anim id est laborum.
-    </p>
+    <div id="topTxt">
+        <h1>Flower City Sound</h1>
+        <h3>Featured Artists</h3>
+        <p>
+            PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, 
+            consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut 
+            enim ad minim veniam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip ex ea commodo 
+            consequat. Duis aute irure dolor in reprehenderit 
+            in voluptate velit esse cillum dolore eu fugiat 
+            nulla pariatur. Excepteur sint occaecat cupidatat 
+            non proident, sunt in culpa qui officia deserunt 
+            mollit anim id est laborum.
+        </p>
+    </div>
+    
 </div>
 <!-- Featured Artists -->
+<div id="FABackground"></div>
 <div id="featuredArtists">
     <figure>
         <img src="../assets/images/placeholder_img.jpg" alt="Band One Img" width="200px">
@@ -43,9 +47,10 @@
         <figcaption>Band Three</figcaption>
     </figure>
 </div>
+
 <hr>
 <!-- Upcoming Events -->
-<div>
+<div id="UEContainer">
     <h2>Upcoming Events</h2>
     <div id="upcomingEvents">
         <figure>

@@ -2,8 +2,8 @@
     $title = "Flower City Sound - Home";
     include("../view/include/header.php");
 ?>
-<div>
-    <h1>About Flower City Sound</h1>
+<h1 class="top" id="about">About Flower City Sound</h1>
+<div id="aboutTxt">
     <p>
         PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, consectetur adipiscing 
         elit, sed do eiusmod tempor incididunt ut labore et 
@@ -38,10 +38,10 @@
         deserunt mollit anim id est laborum.
     </p>
 </div>
-<div>
+<div class="team">
     <h2>Meet the Team</h2>
     <h3>Students</h3>
-    <div>
+    <div class="members">
         <div>
             <p>
                 <strong>Olivia Steffenhagen</strong>
@@ -68,10 +68,16 @@
         </div>
     </div>
     <h3>Faculty</h3>
-    <div>
+    <div class="members">
         <div>
             <p>
                 <strong>Stephen Jacobs</strong>
+                <br>Faculty Advisor
+            </p>
+        </div>
+        <div>
+            <p>
+                <strong>Kyle Vock</strong>
                 <br>Faculty Advisor
             </p>
         </div>
@@ -89,7 +95,7 @@
         </div>
     </div>
     <h3>Honorable Mentions</h3>
-    <p>
+    <p class="members">
         Any others who helped out, clients, venues/people 
         who gave us stuff for Imagine, etc
     </p>

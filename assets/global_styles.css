@@ -1,6 +1,13 @@
+/* ALL PAGES */
+
 body {
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body > div {
+    padding: 0% 5% 0% 5%;
 }
 
 #header, #footer {
@@ -32,13 +39,22 @@ body {
     background-color:darkkhaki;
 }
 
-#featuredArtists {
-    display: flex;
-}
-
-#faDesc {
+.top {
     background-color: #00266E;
     color: white;
+    padding: 5% 5% 5% 5%;
+}
+
+#topTxt {
+    max-width: 75ch;
+    margin: auto;
+    padding: 0;
+}
+
+/* HOME PAGE */
+
+#topHome {
+    padding-bottom: 2%;
 }
 
 h1 {
@@ -46,8 +62,73 @@ h1 {
     margin: 0;
 }
 
-#upcomingEvents {
+#featuredArtists, #upcomingEvents {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0% 5% 5% 5%;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+#FABackground {
+    background-color: #00266E;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+hr {
+    width: 45%;
+    border: 1px solid #e1e1e1;
+}
+
+#UEContainer h2 {
+    text-align: center;
+    margin-top: 5%;
+}
+
+/* ABOUT PAGE */
+
+#about {
+    text-align: center;
+}
+
+#aboutTxt {
+    padding: 5% 5% 5% 5%;
+    max-width: 75ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team{
+    background-color: #00266E;
+    color: white;
+    padding: 5% 5% 5% 5%;
+}
+
+.team h2, .team h3 {
+    text-align: center;
+}
+
+.team h3 {
+    margin-top: 5%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.members {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.members div {
+    padding: 2%;
 }
 
 @media screen and (max-width: 480px) {
@@ -56,5 +137,8 @@ h1 {
     }
     #hamburger {
         display: flex;
+    }
+    .members {
+        flex-wrap: wrap;
     }
 }
