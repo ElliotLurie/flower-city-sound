@@ -8,28 +8,24 @@
 </head>
 <body>
     <div id="header">
-        <nav id="nav">
+        <div id="nav">
             <ul>
                 <li><a href="../view/about.php">About</a></li>
-                <li>Artists</li>
-                <ul>
-                    <li><a href="../view/artistsList_ind.php">Individual</a></li>
-                    <li><a href="../view/artistsList_gr.php">Groups</a></li>
-                </ul>
+                <li><a href="../view/artistsList.php">Artists</a></li>
                 <li><a href="../view/venuesList.php">Venues</a></li>
             </ul>
-        </nav>
+        </div>
         <div id="hamburger">
             <div></div>
             <div></div>
             <div></div>
         </div>
         <!-- LOGO IMAGE HERE -->
-        <p><a href="../view/index.php">LOGO[TEMP]</a></p>
+        <p id="logo"><a href="../view/index.php">LOGO[TEMP]</a></p>
         <!-- SEARCH BAR HERE -->
-        <div>
+        <div id="SBContainer">
             <form action="../view/search.php">
-                <input type="text" placeholder="Search..."/>
+                <input id="searchBar" type="text" placeholder="Search..."/>
             </form>
         </div>
     </div>

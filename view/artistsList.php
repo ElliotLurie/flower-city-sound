@@ -1,6 +1,6 @@
 <?php 
     // Set title
-    $title = "Flower City Sound - Home";
+    $title = "Flower City Sound - Artists";
     include("../view/include/header.php");
     // controller(s)
     include("../controller/ArtistController.php");
@@ -8,13 +8,18 @@
     $artists = [];
 ?>
 <div>
-    <h1>All Individual Artists</h1>
+    <h1>Artists</h1>
 </div>
 <div>
     <!-- Filtering and sorting -->
     <form id="filter" method="get" onsubmit="return false">
         <div>
             <p>Filter:</p>
+            <select name="size">
+                <option value="">Size</option>
+                <option value="ind">Individuals</option>
+                <option value="group">Groups</option>
+            </select>
             <select name="genre">
                 <option value="">Genre</option>
                 <option value="blues">Blues</option>

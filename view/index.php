@@ -54,17 +54,17 @@
     <h2>Upcoming Events</h2>
     <div id="upcomingEvents">
         <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event One Img" width="200px">
+            <img src="../assets/images/placeholder_img.jpg" alt="Event One Img" width="300px" height="200px">
             <figcaption>Event One</figcaption>
             <p>04/14/2025</p>
         </figure>
         <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event Two Img" width="200px">
+            <img src="../assets/images/placeholder_img.jpg" alt="Event Two Img" width="300px" height="200px">
             <figcaption>Event Two</figcaption>
             <p>05/18/2025</p>
         </figure>
         <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event Three Img" width="200px">
+            <img src="../assets/images/placeholder_img.jpg" alt="Event Three Img" width="300px" height="200px">
             <figcaption>Event Three</figcaption>
             <p>06/25/2025</p>
         </figure>

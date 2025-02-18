@@ -1,13 +1,10 @@
     <div id="footer">
         <ul>
-            <li><a href="../about.php">About</a></li>
-            <li>Artists</li>
-            <ul>
-                <li><a href="../artistList_ind.php">Individual</a></li>
-                <li><a href="../artistList_gr.php">Groups</a></li>
-            </ul>
-            <li><a href="../venuesList.php">Venues</a></li>
+            <li><a href="../view/about.php">About</a></li>
+            <li><a href="../view/artistsList.php">Artists</a></li>
+            <li><a href="../view/venuesList.php">Venues</a></li>
         </ul>
+        <p>Email: flowercitysound24@gmail.com</p>
     </div>
 </body>
 </html>

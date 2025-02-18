@@ -14,10 +14,30 @@ body > div {
     background-color: #001337;
     display: flex;
     color: white;
+    padding: 2%;
+    justify-content: space-between;
+}
+
+#footer li a {
+    text-decoration: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#header {
+    height: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#header p {
+    margin: 0;
 }
 
 #nav {
     display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #nav ul, #footer ul {
@@ -26,6 +46,20 @@ body > div {
     gap: 5%;
     margin:0;
     padding:0;
+}
+
+#nav li a {
+    background-color: #C8A2C8;
+    color: black;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.1s linear;
+}
+
+#nav li a:hover {
+    transition: background-color 0.1s linear;
+    background-color: #926092;
 }
 
 #hamburger {
@@ -37,6 +71,32 @@ body > div {
 #hamburger > div {
     height: 1px;
     background-color:darkkhaki;
+}
+
+#logo {
+    text-align: center;
+}
+
+#logo a {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#searchBar {
+    float: right;
+    background-color: #C8A2C8;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px 10px 20px;
+}
+
+#searchBar::placeholder{
+    color: #604969;
+}
+
+#SBContainer {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .top {
@@ -90,6 +150,11 @@ hr {
 #UEContainer h2 {
     text-align: center;
     margin-top: 5%;
+}
+
+#footer a {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* ABOUT PAGE */
