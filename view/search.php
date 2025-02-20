@@ -71,7 +71,7 @@
         <?php
             // pulls all results and populates the page using an html 'template'
             // will need pagination
-            if(isset($_POST['filter'])){
+            if(isset($_GET['filter'])){
                 // return as array of results
                 $echoStr = "";
                 // for each result, populate a div with info
