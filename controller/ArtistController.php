@@ -22,12 +22,12 @@ class ArtistController{
 
   // get all bands -- for display in view
   function getAllGroup(){ 
-    return model->getAllGroup();
+    return $model->getAllGroup();
   }
 
   // get all individual artists -- for display in view
   function getAllIndividual(){
-    return model->getAllIndividual();
+    return $model->getAllIndividual();
   }
 
   // filter artists (genre, activity status, decade)

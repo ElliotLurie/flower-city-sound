@@ -25,15 +25,15 @@ class Artist{
     function getArtist ($id){
       $query = $conn->prepare ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers FROM Artist JOIN Page USING (id) WHERE id = :id");
       $query->bind_param (":id", $id);
-      $query->execute ();
+      return $query->execute ()->fetch();
     }
 
     // get all individual artists -- for display in view
     function getAllIndividual(){
-      $rows = array ();
-      $query = $conn->query ("SELECT Page.id, Page.blurb, Page.last_modified, Page.thumbnail, Page.title, FROM Artist JOIN Page USING (id) OUTER JOIN MemberOfGroup ON (Page.id=MemberOfGroup.member_id)");
+      $rows = array();
+      $query = $conn->query ("SELECT Page.id, Page.blurb, Page.last_modified, Page.thumbnail, Page.title, FROM Artist JOIN Page USING (id) LEFT JOIN MemberOfGroup ON (Page.id=MemberOfGroup.member_id)");
 
-      while ($row = $query->fetch ())
+      while ($row = $query->fetch())
         $rows[]=$row;
 
       return $rows;
