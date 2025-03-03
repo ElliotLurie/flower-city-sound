@@ -4,7 +4,7 @@ include("../model/Artist.php");
 class ArtistController{
   private $model;
   public function __construct(){
-    $model = new Artist ();
+    $this->model = new Artist ();
   }
 
   // function getTestName(){
@@ -27,7 +27,7 @@ class ArtistController{
 
   // get all individual artists -- for display in view
   function getAllIndividual(){
-    return $model->getAllIndividual();
+    return $this->model->getAllIndividual();
   }
 
   // filter artists (genre, activity status, decade)

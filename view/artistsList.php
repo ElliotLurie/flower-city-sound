@@ -77,7 +77,7 @@
             // for each artist, populate a div with info
             foreach ($artists as $a) {
                 $echoStr = 
-                    "<div class='indEntries'>
+                    "<div class='indEntry'>
                         <h4>{$a['title']}</h4>
                     </div>";
                 echo $echoStr;
