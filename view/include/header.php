@@ -21,7 +21,7 @@
             <div></div>
         </div>
         <!-- LOGO IMAGE HERE -->
-        <p id="logo"><a href="../view/index.php">LOGO[TEMP]</a></p>
+        <a href="../view/index.php" id="logo"><img src="../assets/images/placeholder_img.jpg" width="60px" height="40px"/></a>
         <!-- SEARCH BAR HERE -->
         <div id="SBContainer">
             <form action="../view/search.php">

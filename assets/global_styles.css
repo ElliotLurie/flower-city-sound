@@ -10,28 +10,12 @@ body > div {
     padding: 0% 5% 0% 5%;
 }
 
-#header, #footer {
-    background-color: #001337;
-    display: flex;
-    color: white;
-    padding: 2%;
-    justify-content: space-between;
-}
-
-#footer li a {
-    text-decoration: none;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
 #header {
+    background-color: #001337;
+    padding: 2%;
     height: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-#header p {
-    margin: 0;
+    grid-template-columns: auto 60px auto;
 }
 
 #nav {
@@ -67,19 +51,16 @@ body > div {
     flex-direction: column;
     gap: 4px;
     width: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 #hamburger > div {
     height: 1px;
-    background-color:darkkhaki;
+    background-color: #C8A2C8;
 }
 
 #logo {
-    text-align: center;
-}
-
-#logo a {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: 0;
 }
 
 #searchBar {
@@ -109,6 +90,30 @@ body > div {
     max-width: 75ch;
     margin: auto;
     padding: 0;
+}
+
+#footer {
+    background-color: #001337;
+    display: flex;
+    color: white;
+    padding: 2%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#footer li a {
+    text-decoration: none;
+    margin: auto 10px auto 10px;
+    color: #C8A2C8;
+}
+
+#footer li a:hover {
+    color: #926092;
+}
+
+#footer p {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* HOME PAGE */
@@ -196,14 +201,108 @@ hr {
     padding: 2%;
 }
 
-@media screen and (max-width: 480px) {
+/* ARTIST TEMPLATE PAGE */
+.topContent{
+    display: grid;
+    grid-template-areas: 
+        "name name "
+        "ya ya"
+        "img side"
+        "bottomContainer bottomContainer";
+    gap: 1px;
+    background-color: black;
+    margin: 5% auto 5% auto;
+    padding: 1px;
+    width: 75%;
+}
+
+.topContent > * {
+    background-color: white;
+    padding: 15px;
+    margin: 0;
+}
+
+.name {
+    grid-area: name;
+}
+
+.ya {
+    grid-area: ya;
+}
+
+.img {
+    grid-area: img;
+}
+
+.side {
+    grid-area: side;
+    display: grid;
+    background-color: black;
+    gap: 1px;
+    padding: 0;
+}
+
+.side > * {
+    background-color: white;
+    padding: 0px 15px 0px 15px;
+    margin: 0;
+}
+
+.bottomContainer {
+    grid-area: bottomContainer;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom {
+    grid-area: side;
+    display: grid;
+    background-color: black;
+    gap: 1px;
+    padding: 0;
+    margin: 0;
+}
+
+.bottom > * {
+    background-color: white;
+    padding: 0px 15px 0px 15px;
+    margin: 0;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0% 5% 5% 5%;
+}
+
+@media screen and (max-width: 700px) {
     #nav {
         display: none;
     }
     #hamburger {
         display: flex;
     }
+    #header {
+        display: flex;
+        justify-content: space-between;
+    }
+    #logo{
+        display: none;
+    }
     .members {
         flex-wrap: wrap;
     }
+    .topContent {
+        grid-template-areas: 
+            "name"
+            "ya"
+            "img"
+            "side"
+            "bottomContainer";
+    }
+    .topContent img {
+        width: 100%;
+    }
+
 }
