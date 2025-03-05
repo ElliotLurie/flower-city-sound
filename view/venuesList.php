@@ -4,6 +4,8 @@
     include("../view/include/header.php");
     // controller(s)
     include("../controller/VenueController.php");
+    $venueController = new VenueController();
+    $venues = [];
 ?>
 <div>
     <h1>Venues</h1>
@@ -51,17 +53,16 @@
         <?php
             // pulls all results and populates the page using an html 'template'
             // will need pagination
-            if(isset($_POST['filter'])){
-                // return as array of results
-                $echoStr = "";
-                // for each result, populate a div with info
-                foreach ($venues as $v) {
-                    $echoStr = 
-                        "<div>
-                            <h4></h4>
-                        </div>";
-                    echo $echoStr;
-                }
+            // return as array of results
+            $venues = $venueController->getAll();
+
+            // for each result, populate a div with info
+            foreach ($venues as $v) {
+                $echoStr = 
+                    "<div class='venEntries'>
+                        <h4>{$a['title']}</h4>
+                    </div>";
+                echo $echoStr;
             }
         ?>
     </div>

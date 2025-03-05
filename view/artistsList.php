@@ -30,7 +30,7 @@
                 <option value="hhr">Hip-Hop/Rap</option>
                 <option value="jazz">Jazz</option>
                 <option value="pop">Pop</option>
-                <option value="rbs">R&B/Soul</option>
+                <option value="rbs">R&amp;B/Soul</option>
                 <option value="rome">Rock/Metal</option>
                 <option value="other">Other</option>
             </select>
@@ -72,18 +72,15 @@
         <?php
             // pulls all individual artists and populates the page using an html 'template'
             // will need pagination
-            if(isset($_POST['filter'])){
-                // return as array of artists
-                $artists = $artistController->getAllIndividual();
-                $echoStr = "";
-                // for each artist, populate a div with info
-                foreach ($artists as $a) {
-                    $echoStr = 
-                        "<div class='indEntries'>
-                            <h4>{$a['name']}</h4>
-                        </div>";
-                    echo $echoStr;
-                }
+            // return as array of artists
+            $artists = $artistController->getAllIndividual();
+            // for each artist, populate a div with info
+            foreach ($artists as $a) {
+                $echoStr = 
+                    "<div class='indEntry'>
+                        <h4>{$a['title']}</h4>
+                    </div>";
+                echo $echoStr;
             }
         ?>
     </div>

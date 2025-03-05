@@ -1,7 +1,7 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE Page (
-  id INT NOT NULL PRIMARY KEY,
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   blurb TEXT NOT NULL,
   external_links TEXT,
   last_modified TEXT NOT NULL,
