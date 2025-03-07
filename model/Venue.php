@@ -1,4 +1,5 @@
 <?php
+include("../assets/DB.php");
 class Venue {
     private $conn;
 
@@ -18,10 +19,9 @@ class Venue {
     function getAll(){
         $rows = array();
         $query = $this->conn->query ("SELECT Page.id, Page.blurb, Page.last_modified, Page.thumbnail, Page.title, Venue.address, Venue.hours FROM Venue JOIN Page USING (id) ");
-
-        while ($row = $query->fetch())
+        while ($row = $query->fetch()){
             $rows[]=$row;
-
+        }
         return $rows;
     }
 

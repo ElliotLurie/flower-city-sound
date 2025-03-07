@@ -86,4 +86,4 @@
         ?>
     </div>
 </div>
-<?php include("../view/include/footer.php") ?>
+<?php include("../view/include/footer.php"); ?>

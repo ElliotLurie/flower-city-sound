@@ -1,9 +1,9 @@
 <?php 
     // Set title
     $title = "Flower City Sound - Home";
-    include("../view/include/header.php");
+    include('../view/include/header.php');
     // controller(s)
-    include("../controller/VenueController.php");
+    include('../controller/VenueController.php');
     $venueController = new VenueController();
     $venues = [];
 ?>
@@ -67,4 +67,4 @@
         ?>
     </div>
 </div>
-<?php include("../view/include/footer.php") ?>
+<?php include("../view/include/footer.php"); ?>

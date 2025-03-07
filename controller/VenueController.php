@@ -1,6 +1,8 @@
 <?php
+include('../model/Venue.php');
 // validate and sanitize
-class VenueController {
+Class VenueController {
+    private $model;
     public function __construct(){
         $this->model = new Venue ();
     }
@@ -12,7 +14,7 @@ class VenueController {
 
     // get all venues
     function getAll(){
-        return $model->getAll($id);
+        return $model->getAll();
     }
 
     // filter venues (decade, ?, ?)

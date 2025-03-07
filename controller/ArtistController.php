@@ -1,7 +1,7 @@
 <?php
 // validate and sanitize
 include("../model/Artist.php");
-class ArtistController{
+Class ArtistController{
   private $model;
   public function __construct(){
     $this->model = new Artist ();
