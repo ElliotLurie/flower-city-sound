@@ -17,12 +17,12 @@ Class ArtistController{
   // to get info from db, model sends info back here 
   // and its returned to the view to go to the right page
   function getArtist($id){
-    return $model->getArtist($id);
+    return $this->model->getArtist($id);
   }
 
   // get all bands -- for display in view
   function getAllGroup(){ 
-    return $model->getAllGroup();
+    return $this->model->getAllGroup();
   }
 
   // get all individual artists -- for display in view

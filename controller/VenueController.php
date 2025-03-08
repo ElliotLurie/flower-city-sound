@@ -9,12 +9,12 @@ Class VenueController {
 
     // not sure if this will be needed rn
     function getVenue($id){
-        return $model->getVenue($id);
+        return $this->model->getVenue($id);
     }
 
     // get all venues
     function getAll(){
-        return $model->getAll();
+        return $this->model->getAll();
     }
 
     // filter venues (decade, ?, ?)
