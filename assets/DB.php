@@ -8,7 +8,7 @@ class DB{
             $this->dbh = new PDO("sqlite:../assets/fcs.db");
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $pe) {
-            die("Bad Database");
+            die("Failed to load database: " . $pe->getMessage());
         }
     }
 
