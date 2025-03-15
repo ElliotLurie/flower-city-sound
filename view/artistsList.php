@@ -7,7 +7,7 @@
     $artistController = new ArtistController();
     $artists = [];
 ?>
-<div>
+<div class="top">
     <h1>Artists</h1>
 </div>
 <div>
@@ -57,7 +57,7 @@
                 <option value="2020">2020s</option>
             </select>
         </div>
-        <div>
+        <div id="filterSort">
             <p>Sort:</p>
             <input type="radio" id="name" name="sort" value="name">
             <label for="name">Name</label>
@@ -73,12 +73,13 @@
             // pulls all individual artists and populates the page using an html 'template'
             // will need pagination
             // return as array of artists
-            $artists = $artistController->getAllIndividual();
+            $artists = $artistController->getAllArtists();
             // for each artist, populate a div with info
             foreach ($artists as $a) {
                 $echoStr = 
-                    "<div class='indEntry'>
+                    "<div class='artEntries'>
                         <h4>{$a['title']}</h4>
+                        <p>{$a['genres']}</p>
                     </div>";
                 echo $echoStr;
             }

@@ -28,6 +28,16 @@ class Artist{
         return $query->execute ()->fetch();
     }
 
+    function getAllArtists(){
+        $rows = array();
+        $query = $this->conn->query ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers FROM Artist JOIN Page USING (id)");
+
+        while ($row = $query->fetch())
+            $rows[]=$row;
+
+        return $rows;
+    }
+
     // get all individual artists -- for display in view
     function getAllIndividual(){
         $rows = array();

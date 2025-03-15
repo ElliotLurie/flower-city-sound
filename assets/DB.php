@@ -5,7 +5,7 @@ class DB{
     public function __construct(){
         // connection to DB
         try {
-            $this->dbh = new PDO("sqlite:../assets/fcs.db");
+            $this->dbh = new PDO("sqlite:../../adminer/fcs.db");
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $pe) {
             die("Failed to load database: " . $pe->getMessage());

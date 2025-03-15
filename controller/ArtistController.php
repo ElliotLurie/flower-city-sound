@@ -20,6 +20,11 @@ Class ArtistController{
     return $this->model->getArtist($id);
   }
 
+  // get all artists -- for display in view
+  function getAllArtists(){ 
+    return $this->model->getAllArtists();
+  }
+
   // get all bands -- for display in view
   function getAllGroup(){ 
     return $this->model->getAllGroup();

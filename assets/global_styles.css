@@ -4,6 +4,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 150%;
 }
 
 body > div {
@@ -22,6 +23,7 @@ body > div {
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
+    font-size: 0.90em;
 }
 
 #nav ul, #footer ul {
@@ -120,6 +122,10 @@ body > div {
 
 #topHome {
     padding-bottom: 2%;
+}
+
+#topHome h1 {
+    text-align: left;
 }
 
 h1 {
@@ -274,6 +280,46 @@ hr {
     flex-wrap: wrap;
     justify-content: center;
     padding: 0% 5% 5% 5%;
+}
+
+/* Venue/Artist List */
+
+.top h1 {
+    text-align: center;
+}
+
+#filter {
+    margin-top: 2.5%;
+}
+
+#filter div > * {
+    display: inline-block;
+}
+
+#filterSort > input {
+    appearance: none;
+}
+
+#filterSort > input:checked+label {
+    font-weight: bold;
+    color: #5c385c;
+}
+
+.listedEntries {
+    display: grid;
+    column-gap: 5%;
+    grid-template-columns: 50% 50%;
+    margin: 2.5% 5% 5% 0;
+}
+
+.venEntries, .artEntries {
+    border: black 1px solid;
+    border-top: 0px;
+    padding: 2.5% 2.5% 2.5% 5%;
+    cursor: pointer;
+}
+.venEntries:first-child, .venEntries:nth-child(2), .artEntries:first-child, .artEntries:nth-child(2) {
+    border: black 1px solid;
 }
 
 @media screen and (max-width: 700px) {

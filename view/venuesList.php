@@ -7,7 +7,7 @@
     $venueController = new VenueController();
     $venues = [];
 ?>
-<div>
+<div class="top">
     <h1>Venues</h1>
 </div>
 <div>
@@ -17,8 +17,8 @@
             <p>Filter:</p>
             <select name="status">
                 <option value="">Status</option>
-                <option value="open">Open</option>
-                <option value="closed">Closed</option>
+                <option value="open">Active</option>
+                <option value="closed">Permanently Closed</option>
             </select>
             <select name="decade">
                 <option value="">Decade</option>
@@ -38,7 +38,7 @@
                 <option value="2020">2020s</option>
             </select>
         </div>
-        <div>
+        <div id="filterSort">
             <p>Sort:</p>
             <input type="radio" id="name" name="sort" value="name">
             <label for="name">Name</label>
@@ -59,8 +59,9 @@
             // for each result, populate a div with info
             foreach ($venues as $v) {
                 $echoStr = 
-                    "<div class='venEntries'>
-                        <h4>{$a['title']}</h4>
+                    "<div class='venEntries' onclick='goToPage(\"{$v['title']}, {$v['id']}\");'>
+                        <h4>{$v['title']}</h4>
+                        <p>{$v['address']}</p>
                     </div>";
                 echo $echoStr;
             }
@@ -68,3 +69,4 @@
     </div>
 </div>
 <?php include("../view/include/footer.php"); ?>
+<script type="text/javascript" src="../assets/global_script.js"></script>
