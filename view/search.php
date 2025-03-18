@@ -4,7 +4,11 @@
     include("../view/include/header.php");
     // controller(s)
     include("../controller/ArtistController.php");
+    $artistController = new ArtistController();
+    $artists = [];
     include("../controller/VenueController.php");
+    $venueController = new VenueController();
+    $venues = [];
 ?>
 <div>
     <h1>Search Results</h1>

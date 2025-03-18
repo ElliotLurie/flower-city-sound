@@ -14,7 +14,10 @@
         ?>
     </h1> -->
     <div id="topTxt">
-        <h1>Flower City Sound</h1>
+        <div onclick="txtChange();">
+            <h1>Flower City </h1>
+            <h1 id="txtChange">Sound</h1>
+        </div>
         <h3><a href="../view/artistPgTemplate.php" style="color: white;">artist template page</a></h3>
         <p>
             PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, 
@@ -70,4 +73,5 @@
         </figure>
     </div>
 </div>
+<script type="text/javascript" src="../assets/global_script.js"></script>
 <?php include("../view/include/footer.php") ?>

@@ -94,6 +94,10 @@ body > div {
     padding: 0;
 }
 
+#topTxt div > * {
+    display:inline;
+}
+
 #footer {
     background-color: #001337;
     display: flex;
@@ -282,7 +286,7 @@ hr {
     padding: 0% 5% 5% 5%;
 }
 
-/* Venue/Artist List */
+/* Venue/Artist/Search List */
 
 .top h1 {
     text-align: center;
