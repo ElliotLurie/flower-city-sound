@@ -35,18 +35,18 @@
     
 </div>
 <!-- Featured Artists -->
-<div id="FABackground"></div>
-<div id="featuredArtists">
+<div id="FBackground"></div>
+<div id="featured">
     <figure>
-        <img src="../assets/images/placeholder_img.jpg" alt="Band One Img" width="200px">
+        <img src="../assets/images/placeholder_img.jpg" alt="Band One Img">
         <figcaption>Band One</figcaption>
     </figure>
     <figure>
-        <img src="../assets/images/placeholder_img.jpg" alt="Band Two Img" width="200px">
+        <img src="../assets/images/placeholder_img.jpg" alt="Band Two Img">
         <figcaption>Band Two</figcaption>
     </figure>
     <figure>
-        <img src="../assets/images/placeholder_img.jpg" alt="Band Three Img" width="200px">
+        <img src="../assets/images/placeholder_img.jpg" alt="Band Three Img">
         <figcaption>Band Three</figcaption>
     </figure>
 </div>
@@ -57,21 +57,20 @@
     <h2>Upcoming Events</h2>
     <div id="upcomingEvents">
         <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event One Img" width="300px" height="200px">
+            <img src="../assets/images/placeholder_img.jpg" alt="Event One Img">
             <figcaption>Event One</figcaption>
             <p>04/14/2025</p>
         </figure>
         <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event Two Img" width="300px" height="200px">
+            <img src="../assets/images/placeholder_img.jpg" alt="Event Two Img">
             <figcaption>Event Two</figcaption>
             <p>05/18/2025</p>
         </figure>
         <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event Three Img" width="300px" height="200px">
+            <img src="../assets/images/placeholder_img.jpg" alt="Event Three Img">
             <figcaption>Event Three</figcaption>
             <p>06/25/2025</p>
         </figure>
     </div>
 </div>
-<script type="text/javascript" src="../assets/global_script.js"></script>
 <?php include("../view/include/footer.php") ?>

@@ -69,4 +69,3 @@
     </div>
 </div>
 <?php include("../view/include/footer.php"); ?>
-<script type="text/javascript" src="../assets/global_script.js"></script>

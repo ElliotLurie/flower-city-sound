@@ -48,6 +48,10 @@ body > div {
     background-color: #926092;
 }
 
+#mobileNav {
+    display: none;
+}
+
 #hamburger {
     display: none;
     flex-direction: column;
@@ -89,9 +93,13 @@ body > div {
 }
 
 #topTxt {
-    max-width: 75ch;
+    max-width: 1000px;
     margin: auto;
     padding: 0;
+}
+
+#topTxt p {
+    max-width: 80ch;
 }
 
 #topTxt div > * {
@@ -125,11 +133,13 @@ body > div {
 /* HOME PAGE */
 
 #topHome {
-    padding-bottom: 2%;
+    padding-bottom: 3%;
+    padding-top: 6%;
 }
 
 #topHome h1 {
     text-align: left;
+    font-size: 4em;
 }
 
 h1 {
@@ -137,17 +147,29 @@ h1 {
     margin: 0;
 }
 
-#featuredArtists, #upcomingEvents {
+#featured, #upcomingEvents {
     display: flex;
     flex-wrap: wrap;
+    gap: 5%;
     justify-content: center;
-    padding: 0% 5% 5% 5%;
+    padding: 0% 5% 0% 5%;
+    margin: auto;
+    max-width: 1000px;
     background-color: transparent;
     position: relative;
     z-index: 2;
 }
 
-#FABackground {
+#featured img {
+    width: 300px;
+}
+
+#featured figure, #upcomingEvents figure {
+    margin: 0;
+    margin-bottom: 5%;
+}
+
+#FBackground {
     background-color: #00266E;
     height: 100px;
     width: 100%;
@@ -165,6 +187,11 @@ hr {
 #UEContainer h2 {
     text-align: center;
     margin-top: 5%;
+}
+
+#upcomingEvents img {
+    width: 300px;
+    height: 200px;
 }
 
 #footer a {
@@ -330,6 +357,31 @@ hr {
     #nav {
         display: none;
     }
+    #mobileNav {
+        display: none;
+        width: 100%;
+        background-color: #C8A2C8;
+        margin: 0;
+        padding: 0;
+    }
+    #mobileNav ul {
+        list-style: none;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
+    #mobileNav li:not(:last-child) {
+        border-bottom: solid #5c385c 1px;
+    }
+    #mobileNav li:hover {
+        background-color: #926092;
+    }
+    #mobileNav a {
+        display: block;
+        text-decoration: none;
+        color: black;
+        padding: 2% 0 2% 5%
+    }
     #hamburger {
         display: flex;
     }
@@ -354,5 +406,8 @@ hr {
     .topContent img {
         width: 100%;
     }
-
+    #topHome h1 {
+        font-size: 3rem;
+        line-height: 100%;
+    }
 }
