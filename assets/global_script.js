@@ -1,9 +1,26 @@
-function mobileNav(){
+document.addEventListener("click", handleEvent);
+window.addEventListener("resize", handleResize);
+
+function handleEvent(event){
     var mobileNav = document.getElementById("mobileNav");
     var display = mobileNav.style.display;
-    if(display == "none"){
-        mobileNav.style.display = "inline-block";
-    } else if(display == "inline-block"){
+    if(event.target.id == "hamburger" || event.target.classList.contains("hamburgerDiv")){
+        if(display =="none") {
+            mobileNav.style.display = "inline-block";
+        } else if(display == "inline-block") {
+            mobileNav.style.display = "none";
+        }
+    } else {
+        if(display == "inline-block"){
+            mobileNav.style.display ="none";
+        }
+    }
+}
+
+function handleResize() {
+    var mobileNav = document.getElementById("mobileNav");
+    var display = mobileNav.style.display;
+    if(display == "inline-block") {
         mobileNav.style.display = "none";
     }
 }

@@ -77,7 +77,7 @@
             // for each artist, populate a div with info
             foreach ($artists as $a) {
                 $echoStr = 
-                    "<div class='artEntries'>
+                    "<div class='artEntries' onclick='goToPage(\"{$a['title']}, {$a['id']}\")';>
                         <h4>{$a['title']}</h4>
                         <p>{$a['genres']}</p>
                     </div>";

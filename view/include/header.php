@@ -16,7 +16,7 @@
                 <li><a href="../view/venuesList.php">Venues</a></li>
             </ul>
         </div>
-        <div id="hamburger" onclick="mobileNav()">
+        <div id="hamburger">
             <div class="hamburgerDiv"></div>
             <div class="hamburgerDiv"></div>
             <div class="hamburgerDiv"></div>

@@ -59,6 +59,8 @@ body > div {
     width: 20px;
     margin-top: auto;
     margin-bottom: auto;
+    padding: 1%;
+    cursor: pointer;
 }
 #hamburger > div {
     height: 1px;
@@ -134,12 +136,7 @@ body > div {
 
 #topHome {
     padding-bottom: 3%;
-    padding-top: 6%;
-}
-
-#topHome h1 {
-    text-align: left;
-    font-size: 4em;
+    padding-top: 8%;
 }
 
 h1 {
@@ -147,7 +144,12 @@ h1 {
     margin: 0;
 }
 
-#featured, #upcomingEvents {
+#topHome h1 {
+    text-align: left;
+    font-size: 4em;
+}
+
+#featured, #featuredVenues, #upcomingEvents {
     display: flex;
     flex-wrap: wrap;
     gap: 5%;
@@ -160,12 +162,13 @@ h1 {
     z-index: 2;
 }
 
-#featured img {
+#featured img, #featuredVenues img {
     width: 300px;
 }
 
-#featured figure, #upcomingEvents figure {
+#featured figure, #featuredVenues figure, #upcomingEvents figure {
     margin: 0;
+    padding: 0;
     margin-bottom: 5%;
 }
 
@@ -184,9 +187,15 @@ hr {
     border: 1px solid #e1e1e1;
 }
 
-#UEContainer h2 {
+#UEContainer, #FVContainer {
+    padding: 0;
+    margin: 0;
+}
+
+#UEContainer h2, #FVContainer h2 {
     text-align: center;
     margin-top: 5%;
+    padding: 0;
 }
 
 #upcomingEvents img {

@@ -52,6 +52,26 @@
 </div>
 
 <hr>
+<div id="FVContainer">
+    <h2>Featured Venues</h2>
+    <div id="featuredVenues">
+        <figure>
+            <img src="../assets/images/placeholder_img.jpg" alt="Venue One Img">
+            <figcaption>Venue One</figcaption>
+        </figure>
+        <figure>
+            <img src="../assets/images/placeholder_img.jpg" alt="Venue Two Img">
+            <figcaption>Venue Two</figcaption>
+        </figure>
+        <figure>
+            <img src="../assets/images/placeholder_img.jpg" alt="Venue Three Img">
+            <figcaption>Venue Three</figcaption>
+        </figure>
+    </div>
+</div>
+
+
+<hr>
 <!-- Upcoming Events -->
 <div id="UEContainer">
     <h2>Upcoming Events</h2>
