@@ -9,28 +9,48 @@ class Artist{
         $this->conn = $db->getConn();
     }
 
-    // function getTestName(){
-    //     $db = new DB();
-    //     $data = "";
-    //     $stmt = $db->getConn()->prepare('SELECT testname FROM testTable WHERE id = 1');
-    //     $stmt->execute();
-    //     while($name = $stmt->fetch()){
-    //         $data = $name;
-    //     }
-    //     if($data != null){
-    //         return $data[0];
-    //     }
-    // }
-
     function getArtist ($id){
         $query = $this->conn->prepare ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers FROM Artist JOIN Page USING (id) WHERE id = :id");
         $query->bind_param (":id", $id);
         return $query->execute ()->fetch();
     }
 
-    function getAllArtists(){
+    function getArtists($group = -1, $genre = null, $activity = -1, $decade = null, $order = null){
+        $queryString = "SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers FROM Artist JOIN Page USING (id)";
+
+        if ($group != -1) {
+            $GROUP_STRING = "JOIN MemberOfGroup ON (Page.id=MemberOfGroup.group_id)";
+            $INDIE_STRING = "JOIN MemberOfGroup ON (Page.id=MemberOfGroup.member_id)";
+
+            $queryString .= " " . $group == 1 ? $GROUP_STRING : $INDIE_STRING;
+        }
+
+        if ($genre != null || $activity != -1 || $decade != null) {
+            $prev = false;
+            $queryString .= " WHERE ";
+
+            if ($genre != null) {
+                $queryString .= "genres LIKE %$genre%";
+                $prev = true;
+            }
+
+            if ($activity != -1) {
+                if ($prev) $queryString .= " AND ";
+                $queryString .= "active = $activity";
+                $prev = true;
+            }
+            
+            if ($decade != null) {
+                if ($prev) $queryString .= " AND ";
+
+                if ($decade == "pre19") $queryString .= "year < 1900";
+                else $queryString .= "year >= $decade AND year <= $decade + 10";
+            }
+        }
+
         $rows = array();
-        $query = $this->conn->query ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers FROM Artist JOIN Page USING (id)");
+
+        $query = $this->conn->query ($queryString);
 
         while ($row = $query->fetch())
             $rows[]=$row;

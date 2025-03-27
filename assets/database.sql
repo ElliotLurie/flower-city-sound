@@ -3,17 +3,20 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE Page (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   blurb TEXT NOT NULL,
+  body TEXT NOT NULL,
   external_links TEXT,
   last_modified TEXT NOT NULL,
   sources TEXT,
   thumbnail BLOB,
-  title TEXT
+  title TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE Artist (
   id INT NOT NULL PRIMARY KEY,
+  active INT NOT NULL,
   genres TEXT,
   publishers TEXT,
+  year INT NOT NULL,
   FOREIGN KEY (id) REFERENCES Page (id)
 );
 

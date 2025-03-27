@@ -15,12 +15,12 @@
     <form id="filter" method="get" onsubmit="return false">
         <div>
             <p>Filter:</p>
-            <select name="size">
+            <select name="size" onchange="this.form.submit()">
                 <option value="">Size</option>
                 <option value="ind">Individuals</option>
                 <option value="group">Groups</option>
             </select>
-            <select name="genre">
+            <select name="genre" onchange="this.form.submit()">
                 <option value="">Genre</option>
                 <option value="blues">Blues</option>
                 <option value="class">Classical</option>
@@ -34,12 +34,12 @@
                 <option value="rome">Rock/Metal</option>
                 <option value="other">Other</option>
             </select>
-            <select name="activity">
+            <select name="activity" onchange="this.form.submit()">
                 <option value="">Activity Status</option>
                 <option value="act">Active</option>
                 <option value="inact">Inactive</option>
             </select>
-            <select name="decade">
+            <select name="decade" onchange="this.form.submit()">
                 <option value="">Decade</option>
                 <option value="pre19">Pre-1900s</option>
                 <option value="1900">1900s</option>
@@ -57,7 +57,7 @@
                 <option value="2020">2020s</option>
             </select>
         </div>
-        <div id="filterSort">
+        <div id="filterSort" onchange="this.form.submit()">
             <p>Sort:</p>
             <input type="radio" id="name" name="sort" value="name">
             <label for="name">Name</label>
@@ -70,10 +70,14 @@
     <!-- div that will hold returned artist's divs and format them into a grid using flex -->
     <div class="listedEntries">
         <?php
+            $group = isset ($_GET ["size"]) ? ($_GET ["size"] == "group" ? 1 : 0) : -1;
+            $activity = isset ($_GET ["activity"]) ? ($_GET ["activity"] == "act" ? 1 : 0) : -1;
+            $genre = isset ($_GET ["genre"]) ? $_GET ["genre"] : null;
+            $decade = isset ($_GET ["decade"]) ? $_GET ["decade"] : null;
             // pulls all individual artists and populates the page using an html 'template'
             // will need pagination
             // return as array of artists
-            $artists = $artistController->getAllArtists();
+            $artists = $artistController->getArtists($group, $genre, $activity, $decade);
             // for each artist, populate a div with info
             foreach ($artists as $a) {
                 $echoStr = 

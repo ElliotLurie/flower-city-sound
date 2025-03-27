@@ -7,36 +7,13 @@ Class ArtistController{
     $this->model = new Artist ();
   }
 
-  // function getTestName(){
-  //     $artist = new Artist();
-  //     return $artist->getTestName();
-  // }
-
-  // user selects an artist from view
-  // controller takes the input and sends it to model
-  // to get info from db, model sends info back here 
-  // and its returned to the view to go to the right page
+  // get artist by id
   function getArtist($id){
     return $this->model->getArtist($id);
   }
 
-  // get all artists -- for display in view
-  function getAllArtists(){ 
-    return $this->model->getAllArtists();
-  }
-
-  // get all bands -- for display in view
-  function getAllGroup(){ 
-    return $this->model->getAllGroup();
-  }
-
-  // get all individual artists -- for display in view
-  function getAllIndividual(){
-    return $this->model->getAllIndividual();
-  }
-
-  // filter artists (genre, activity status, decade)
-  function filter(){
-
+  // get artists
+  function getArtists($group = -1, $genre = null, $activity = -1, $decade = null, $order = null){ 
+    return $this->model->getArtists($group, $genre, $activity, $decade, $order);
   }
 }

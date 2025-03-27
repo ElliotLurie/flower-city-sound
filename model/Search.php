@@ -7,7 +7,6 @@ class Search {
     // search through DB
     function search($filter){
       $stmnt = $sqlite->prepare ("SELECT * FROM PAGE WHERE (title=:filter)");
-      
     }
 
     // filter results (genre, activity status, decade, type)
