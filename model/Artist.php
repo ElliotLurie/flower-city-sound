@@ -30,7 +30,7 @@ class Artist{
             $queryString .= " WHERE ";
 
             if ($genre != null) {
-                $queryString .= "genres LIKE %$genre%";
+                $queryString .= "genres LIKE '%$genre%'";
                 $prev = true;
             }
 

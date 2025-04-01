@@ -15,12 +15,12 @@
     <form id="filter" method="get" onsubmit="return false">
         <div>
             <p>Filter:</p>
-            <select name="status" onchange="this.form.submit()">
+            <select id="status" name="status" onchange="this.form.submit()">
                 <option value="">Status</option>
                 <option value="open">Active</option>
                 <option value="closed">Permanently Closed</option>
             </select>
-            <select name="decade" onchange="this.form.submit()">
+            <select id="decade" name="decade" onchange="this.form.submit()">
                 <option value="">Decade</option>
                 <option value="pre19">Pre-1900s</option>
                 <option value="1900">1900s</option>
@@ -72,4 +72,11 @@
         ?>
     </div>
 </div>
+<script>
+for (const child of document.getElementById("status").children)
+    if (child.value == "<?php echo $_GET ["status"]?>") child.selected = true;
+
+for (const child of document.getElementById("decade").children)
+    if (child.value == "<?php echo $_GET ["decade"]?>") child.selected = true;
+</script>
 <?php include("../view/include/footer.php"); ?>

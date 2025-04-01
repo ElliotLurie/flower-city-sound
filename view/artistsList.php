@@ -15,12 +15,12 @@
     <form id="filter" method="get" onsubmit="return false">
         <div>
             <p>Filter:</p>
-            <select name="size" onchange="this.form.submit()">
+            <select id="size" name="size" onchange="this.form.submit()">
                 <option value="">Size</option>
                 <option value="ind">Individuals</option>
                 <option value="group">Groups</option>
             </select>
-            <select name="genre" onchange="this.form.submit()">
+            <select id="genre" name="genre" onchange="this.form.submit()">
                 <option value="">Genre</option>
                 <option value="blues">Blues</option>
                 <option value="class">Classical</option>
@@ -34,12 +34,12 @@
                 <option value="rome">Rock/Metal</option>
                 <option value="other">Other</option>
             </select>
-            <select name="activity" onchange="this.form.submit()">
+            <select id="activity" name="activity" onchange="this.form.submit()">
                 <option value="">Activity Status</option>
                 <option value="act">Active</option>
                 <option value="inact">Inactive</option>
             </select>
-            <select name="decade" onchange="this.form.submit()">
+            <select id="decade" name="decade" onchange="this.form.submit()">
                 <option value="">Decade</option>
                 <option value="pre19">Pre-1900s</option>
                 <option value="1900">1900s</option>
@@ -90,4 +90,20 @@
         ?>
     </div>
 </div>
+<script>
+for (const child of document.getElementById("size").children)
+    if (child.value == "<?php echo $_GET ["size"]?>") child.selected = true;
+
+for (const child of document.getElementById("genre").children)
+    if (child.value == "<?php echo $_GET ["genre"]?>") child.selected = true;
+
+for (const child of document.getElementById("activity").children)
+    if (child.value == "<?php echo $_GET ["activity"]?>") child.selected = true;
+
+for (const child of document.getElementById("decade").children)
+    if (child.value == "<?php echo $_GET ["decade"]?>") child.selected = true;
+
+</script>
+
+
 <?php include("../view/include/footer.php"); ?>
