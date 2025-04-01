@@ -15,12 +15,12 @@
     <form id="filter" method="get" onsubmit="return false">
         <div>
             <p>Filter:</p>
-            <select name="status">
+            <select name="status" onchange="this.form.submit()">
                 <option value="">Status</option>
                 <option value="open">Active</option>
                 <option value="closed">Permanently Closed</option>
             </select>
-            <select name="decade">
+            <select name="decade" onchange="this.form.submit()">
                 <option value="">Decade</option>
                 <option value="pre19">Pre-1900s</option>
                 <option value="1900">1900s</option>
@@ -38,7 +38,7 @@
                 <option value="2020">2020s</option>
             </select>
         </div>
-        <div id="filterSort">
+        <div id="filterSort" onchange="this.form.submit()">
             <p>Sort:</p>
             <input type="radio" id="name" name="sort" value="name">
             <label for="name">Name</label>
@@ -51,10 +51,14 @@
     <!-- div that will hold returned divs and format them into a grid using flex -->
     <div class="listedEntries">
         <?php
+            $decade = $_GET ["decade"] != "" ? $_GET ["decade"] : null;
+            $status = $_GET ["status"] != "" ? ($_GET ["status"] == "open" ? 1 : 0) : -1;
+
             // pulls all results and populates the page using an html 'template'
             // will need pagination
             // return as array of results
-            $venues = $venueController->getAll();
+            $venues = $venueController->getVenues($status, $decade);
+
 
             // for each result, populate a div with info
             foreach ($venues as $v) {

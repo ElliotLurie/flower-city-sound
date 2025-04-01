@@ -70,10 +70,10 @@
     <!-- div that will hold returned artist's divs and format them into a grid using flex -->
     <div class="listedEntries">
         <?php
-            $group = isset ($_GET ["size"]) ? ($_GET ["size"] == "group" ? 1 : 0) : -1;
-            $activity = isset ($_GET ["activity"]) ? ($_GET ["activity"] == "act" ? 1 : 0) : -1;
-            $genre = isset ($_GET ["genre"]) ? $_GET ["genre"] : null;
-            $decade = isset ($_GET ["decade"]) ? $_GET ["decade"] : null;
+            $group = $_GET ["size"] != "" ? ($_GET ["size"] == "group" ? 1 : 0) : -1;
+            $activity = $_GET ["activity"] != "" ? ($_GET ["activity"] == "act" ? 1 : 0) : -1;
+            $genre = $_GET ["genre"] != "" ? $_GET ["genre"] : null;
+            $decade = $_GET ["decade"] != "" ? $_GET ["decade"] : null;
             // pulls all individual artists and populates the page using an html 'template'
             // will need pagination
             // return as array of artists

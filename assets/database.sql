@@ -1,5 +1,13 @@
 PRAGMA foreign_keys = ON;
 
+DROP TABLE IF EXISTS Page;
+DROP TABLE IF EXISTS Artist;
+DROP TABLE IF EXISTS MemberOfGroup;
+DROP TABLE IF EXISTS Event;
+DROP TABLE IF EXISTS ArtistAtEvent;
+DROP TABLE IF EXISTS Venue;
+DROP TABLE IF EXISTS EventAtVenue;
+
 CREATE TABLE Page (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   blurb TEXT NOT NULL,
@@ -20,20 +28,6 @@ CREATE TABLE Artist (
   FOREIGN KEY (id) REFERENCES Page (id)
 );
 
-CREATE TABLE Event (
-  id INT NOT NULL PRIMARY KEY,
-  time TEXT,
-  type TEXT CHECK (type IN ('concert', 'meet')),
-  FOREIGN KEY (id) REFERENCES Page (id)
-);
-
-CREATE TABLE Venue (
-  id INT NOT NULL PRIMARY KEY,
-  address TEXT,
-  hours TEXT,
-  FOREIGN KEY (id) REFERENCES Page (id)
-);
-
 CREATE TABLE MemberOfGroup (
   group_id INT NOT NULL,
   member_id INT NOT NULL,
@@ -42,12 +36,29 @@ CREATE TABLE MemberOfGroup (
   PRIMARY KEY (group_id, member_id)
 );
 
+CREATE TABLE Event (
+  id INT NOT NULL PRIMARY KEY,
+  time TEXT,
+  type TEXT CHECK (type IN ('concert', 'meet')),
+  FOREIGN KEY (id) REFERENCES Page (id)
+);
+
 CREATE TABLE ArtistAtEvent (
   artist_id INT NOT NULL,
   event_id INT NOT NULL,
   FOREIGN KEY (artist_id) REFERENCES Artist (id),
   FOREIGN KEY (event_id) REFERENCES Event (id),
   PRIMARY KEY (artist_id, event_id)
+);
+
+
+CREATE TABLE Venue (
+  id INT NOT NULL PRIMARY KEY,
+  address TEXT,
+  hours TEXT,
+  open INT NOT NULL,
+  year INT NOT NULL,
+  FOREIGN KEY (id) REFERENCES Page (id)
 );
 
 CREATE TABLE EventAtVenue (

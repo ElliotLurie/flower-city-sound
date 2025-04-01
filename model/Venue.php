@@ -15,19 +15,31 @@ class Venue {
         return $query->execute ()->fetch();
     }
 
-    // get all venues
-    function getAll(){
+    function getVenues($status = -1, $decade = null, $order = null){ 
+        $queryString = "SELECT Page.id, Page.blurb, Page.last_modified, Page.thumbnail, Page.title, Venue.address, Venue.hours FROM Venue JOIN Page USING (id)";
+
+        if ($status != -1 || $decade != null){
+            $queryString .= " WHERE ";
+            $prev = false;
+
+            if ($status != -1){
+                $queryString .= "open = $status";
+                $prev = true;
+            }
+
+            if ($decade != null){
+                if ($prev) $queryString .= " AND ";
+              
+                if ($decade == "pre19") $queryString .= "year < 1900";
+                else $queryString .= "year >= $decade AND year <= $decade + 10";
+            }
+        }
+
         $rows = array();
-        $query = $this->conn->query ("SELECT Page.id, Page.blurb, Page.last_modified, Page.thumbnail, Page.title, Venue.address, Venue.hours FROM Venue JOIN Page USING (id) ");
+        $query = $this->conn->query ($queryString);
         while ($row = $query->fetch()){
             $rows[]=$row;
         }
         return $rows;
     }
-
-    // filter venues (decade, ?, ?)
-    function filter(){
-
-    }
-
 }

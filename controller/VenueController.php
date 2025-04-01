@@ -17,8 +17,7 @@ Class VenueController {
         return $this->model->getAll();
     }
 
-    // filter venues (decade, ?, ?)
-    function filter(){
-
+    function getVenues($status = -1, $decade = null, $order = null){ 
+        return $this->model->getVenues($status, $decade, $order);
     }
 }
