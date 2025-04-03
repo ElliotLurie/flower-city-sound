@@ -51,6 +51,7 @@
                 <option value="2010">2010s</option>
                 <option value="2020">2020s</option>
             </select>
+            <button type="button" onclick="location.href=location.href.split('?')[0]">Reset</button>
         </div>
         <div id="filterSort" onchange="this.form.submit()">
             <p>Sort:</p>
