@@ -18,7 +18,6 @@
             <h1>Flower City </h1>
             <h1 id="txtChange">Sound</h1>
         </div>
-        <h3><a href="../view/artistPgTemplate.php" style="color: white;">artist template page</a></h3>
         <p>
             Flower City Sound is a centralized archive of musicians and venues around Rochester. 
             It’s an open source and crowd sourced website that allows the community to help 

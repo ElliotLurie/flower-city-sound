@@ -8,20 +8,22 @@
 </head>
 <body>
     <div id="header">
-        <div id="nav">
-            <ul>
-                <li><a href="../view/about.php">About</a></li>
-                <li><a href="../view/artistsList.php">Artists</a></li>
-                <li><a href="../view/venuesList.php">Venues</a></li>
-            </ul>
+        <div id="navCont">
+            <a href="../view/index.php" id="logo"><img src="../assets/images/placeholder_img.jpg" width="60px" height="40px"/></a>
+            <div id="nav">
+                <ul>
+                    <li><a href="../view/about.php">About</a></li>
+                    <li><a href="../view/artistsList.php">Artists</a></li>
+                    <li><a href="../view/venuesList.php">Venues</a></li>
+                    <li><a href="../view/addRes.php">Other Resources</a></li>
+                </ul>
+            </div>
+            <div id="hamburger">
+                <div class="hamburgerDiv"></div>
+                <div class="hamburgerDiv"></div>
+                <div class="hamburgerDiv"></div>
+            </div>
         </div>
-        <div id="hamburger">
-            <div class="hamburgerDiv"></div>
-            <div class="hamburgerDiv"></div>
-            <div class="hamburgerDiv"></div>
-        </div>
-        <!-- LOGO IMAGE HERE -->
-        <a href="../view/index.php" id="logo"><img src="../assets/images/placeholder_img.jpg" width="60px" height="40px"/></a>
         <!-- SEARCH BAR HERE -->
         <div id="SBContainer">
             <form action="../view/search.php">
@@ -35,6 +37,7 @@
             <li><a href="../view/about.php">About</a></li>
             <li><a href="../view/artistsList.php">Artists</a></li>
             <li><a href="../view/venuesList.php">Venues</a></li>
-        </ul>
+            <li><a href="../view/addRes.php">Additional Resources</a></li>
+        </ul>   
     </div>
     <script type="text/javascript" src="../assets/global_script.js"></script>

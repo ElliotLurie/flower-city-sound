@@ -15,26 +15,29 @@ body > div {
 #header {
     position: relative;
     background-color: #001337;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 2%;
     height: 40px;
-    display: grid;
-    grid-template-columns: auto 60px auto;
     box-shadow: 0px 1px 5px rgb(12, 12, 12);
 }
 
-#nav {
+#navCont {
     display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
+    align-items: center;
+}
+
+#nav {
     font-size: 0.90em;
+    width: 50%;
 }
 
 #nav ul, #footer ul {
     list-style: none;
-    display: flex;
-    gap: 5%;
-    margin:0;
+    gap: 20px;
     padding:0;
+    display: flex;
 }
 
 #nav li a {
@@ -43,6 +46,7 @@ body > div {
     padding: 10px 20px 10px 20px;
     border-radius: 20px;
     text-decoration: none;
+    text-wrap: nowrap;
     transition: background-color 0.1s linear;
 }
 
@@ -65,17 +69,19 @@ body > div {
     padding: 1%;
     cursor: pointer;
 }
+
 #hamburger > div {
     height: 1px;
     background-color: #C8A2C8;
 }
 
 #logo {
-    margin: 0;
+    width: 60px;
+    margin-right: 20px;
 }
 
 #searchBar {
-    float: right;
+    width: 150px;
     background-color: #C8A2C8;
     border-radius: 20px;
     border: none;
@@ -89,6 +95,7 @@ body > div {
 #SBContainer {
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 20px;
 }
 
 .top {
@@ -105,6 +112,7 @@ body > div {
 
 #topTxt p {
     max-width: 80ch;
+    margin-top: 5%;
 }
 
 #topTxt div > * {
@@ -465,6 +473,18 @@ hr {
 .venEntries:not(:hover), .artEntries:not(:hover) {
     transition: box-shadow 0.5s;
     box-shadow: none;
+}
+
+@media screen and (max-width: 790px) {
+    #searchBar{
+        width: 100px;
+    }
+    #nav ul {
+        gap: 10px;
+    }
+    #logo {
+        margin-right: 10px;
+    }
 }
 
 @media screen and (max-width: 800px) {
