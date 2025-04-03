@@ -25,9 +25,15 @@ function handleResize() {
     }
 }
 
-function goToPage(title, id){
-    window.location.replace("https://people.rit.edu/oms4556/FCS/flower-city-sound/view/artistPgTemplate.php");
+function goToArtistPage(title, id){
+    window.location.href = "https://people.rit.edu/oms4556/FCS/flower-city-sound/view/artistPgTemplate.php?artist="+id+title;
 }
+
+function goToVenuePage(titleId){
+    console.log(titleId);
+    window.location.href = `https://people.rit.edu/oms4556/FCS/flower-city-sound/view/venuePgTemplate.php?venue=${titleId}`;
+}
+
 
 // document.getElementById("txtChange").addEventListener("load", txtChange());
 function txtChange(){

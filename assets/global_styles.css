@@ -276,7 +276,7 @@ hr {
     padding: 2%;
 }
 
-/* ARTIST TEMPLATE PAGE */
+/* ARTIST/VENUE TEMPLATE PAGE */
 .topContent{
     display: grid;
     grid-template-areas: 
@@ -295,6 +295,10 @@ hr {
     background-color: #f4f4f4;
     padding: 15px;
     margin: 0;
+}
+
+.topContent h1{
+    line-height: 150%;
 }
 
 .name {

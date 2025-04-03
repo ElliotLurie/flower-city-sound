@@ -42,11 +42,10 @@
             <select id="decade" name="decade" onchange="this.form.submit()">
                 <option value="">Decade</option>
                 <option value="pre19">Pre-1900s</option>
-                <option value="1900">1900s</option>
-                <option value="1910">1910s</option>
-                <option value="1920">1920s</option>
-                <option value="1930">1930s</option>
-                <option value="1940">1940s</option>
+                <option value="1950">1910s</option>
+                <option value="1950">1920s</option>
+                <option value="1950">1930s</option>
+                <option value="1950">1940s</option>
                 <option value="1950">1950s</option>
                 <option value="1960">1960s</option>
                 <option value="1970">1970s</option>
@@ -81,7 +80,7 @@
             // for each artist, populate a div with info
             foreach ($artists as $a) {
                 $echoStr = 
-                    "<div class='artEntries' onclick='goToPage(\"{$a['title']}, {$a['id']}\")';>
+                    "<div class='artEntries' onclick='goToArtistPage(\"{$a['title']}, {$a['id']}\")';>
                         <h4>{$a['title']}</h4>
                         <p>{$a['genres']}</p>
                     </div>";

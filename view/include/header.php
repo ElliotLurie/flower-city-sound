@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../assets/global_styles.css">
 </head>
 <body>
-    <script type="text/javascript" src="../assets/global_script.js"></script>
     <div id="header">
         <div id="nav">
             <ul>
@@ -38,3 +37,4 @@
             <li><a href="../view/venuesList.php">Venues</a></li>
         </ul>
     </div>
+    <script type="text/javascript" src="../assets/global_script.js"></script>

@@ -10,9 +10,16 @@ class Venue {
 
     // not sure if this will be needed rn
     function getVenue($id){
-      $query = $this->conn->prepare ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Venue.address, Venue.hours FROM Venue JOIN Page USING (id) WHERE id = :id");
-        $query->bind_param (":id", $id);
-        return $query->execute ()->fetch();
+        try {
+            $query = $this->conn->prepare ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Venue.address, Venue.hours, Venue.open FROM Venue JOIN Page USING (id) WHERE id = :id");
+            $query->bindParam (":id", $id);
+            $query->execute();
+            $venue = $query->fetch();
+            return $venue;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+      
     }
 
     function getVenues($status = -1, $decade = null, $order = null){ 

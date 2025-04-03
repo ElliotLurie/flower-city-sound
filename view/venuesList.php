@@ -23,11 +23,10 @@
             <select id="decade" name="decade" onchange="this.form.submit()">
                 <option value="">Decade</option>
                 <option value="pre19">Pre-1900s</option>
-                <option value="1900">1900s</option>
-                <option value="1910">1910s</option>
-                <option value="1920">1920s</option>
-                <option value="1930">1930s</option>
-                <option value="1940">1940s</option>
+                <option value="1950">1910s</option>
+                <option value="1950">1920s</option>
+                <option value="1950">1930s</option>
+                <option value="1950">1940s</option>
                 <option value="1950">1950s</option>
                 <option value="1960">1960s</option>
                 <option value="1970">1970s</option>
@@ -62,8 +61,11 @@
 
             // for each result, populate a div with info
             foreach ($venues as $v) {
+                $titleId = "{$v['title']} + {$v['id']}";
+                $titleId = str_replace(" ", "", $titleId);
+                // $titleId = $v["title"] + $v["id"];
                 $echoStr = 
-                    "<div class='venEntries' onclick='goToPage(\"{$v['title']}, {$v['id']}\");'>
+                    "<div class='venEntries' onclick=\"goToVenuePage('$titleId');\">
                         <h4>{$v['title']}</h4>
                         <p>{$v['address']}</p>
                     </div>";

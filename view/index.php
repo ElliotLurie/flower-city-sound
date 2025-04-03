@@ -20,16 +20,13 @@
         </div>
         <h3><a href="../view/artistPgTemplate.php" style="color: white;">artist template page</a></h3>
         <p>
-            PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut 
-            enim ad minim veniam, quis nostrud exercitation 
-            ullamco laboris nisi ut aliquip ex ea commodo 
-            consequat. Duis aute irure dolor in reprehenderit 
-            in voluptate velit esse cillum dolore eu fugiat 
-            nulla pariatur. Excepteur sint occaecat cupidatat 
-            non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum.
+            Flower City Sound is a centralized archive of musicians and venues around Rochester. 
+            It’s an open source and crowd sourced website that allows the community to help 
+            maintain and grow Rochester’s local music scene. Flower City Sound also acts as an 
+            informational hub to learn how to get involved in upcoming events.
+            <br>Join us in preserving and amplifying the music of the Flower City! We invite 
+            you to contribute to our archive and come learn about the well known and indie music
+             spaces as well as underground, hidden gems. 
         </p>
     </div>
     
