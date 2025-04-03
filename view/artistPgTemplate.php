@@ -1,11 +1,16 @@
 <?php 
     // set title
-    $title = "Flower City Sound - ARTIST NAME";
+    include('../controller/ArtistController.php');
+    $titleId = $_GET['artist'];
+    $artistId = explode(" ", $titleId)[1];
+    $artistController = new ArtistController();
+    $artist = $artistController->getArtist($artistId);
+    $title = "Flower City Sound - {$artist['title']}";
     include("../view/include/header.php");
 ?>
 <div class="topContent">
-    <h1 class="name">Name</h1>
-    <p class="ya">Years active</p>
+    <h1 class="name"><?php echo $artist['title']; ?></h1>
+    <p class="ya"><?php echo "{$artist['start']} - {$artist['year']}"; ?></p>
     <figure class="img">
         <img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px">
         <figcaption>image caption(credits)</figcaption>
@@ -17,7 +22,7 @@
         </div>
         <div>
             <h4>Publishers</h4>
-            <p>Publisher name</p>
+            <p><?php echo $artist['publishers']; ?></p>
         </div>
         <div>
             <h4>Label(s)</h4>
@@ -36,7 +41,7 @@
             </div>
             <div>
                 <h4>Genres</h4>
-                <p>Genre 1, genre 2, genre 3, etc...</p>
+                <p><?php echo $artist['genres']; ?></p>
             </div>
         </div>
         
@@ -45,27 +50,7 @@
 <div class="bottomContent">
     <div>
         <h2>About [Artist name]</h2>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore 
-        magna aliqua. Ut enim ad minim veniam, quis nostrud 
-        exercitation ullamco laboris nisi ut aliquip ex ea 
-        commodo consequat. Duis aute irure dolor in reprehenderit 
-        in voluptate velit esse cillum dolore eu fugiat nulla 
-        pariatur. Excepteur sint occaecat cupidatat non proident, 
-        sunt in culpa qui officia deserunt mollit anim id est 
-        laborum.
-        <br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore 
-        magna aliqua. Ut enim ad minim veniam, quis nostrud 
-        exercitation ullamco laboris nisi ut aliquip ex ea 
-        commodo consequat. Duis aute irure dolor in reprehenderit 
-        in voluptate velit esse cillum dolore eu fugiat nulla 
-        pariatur. Excepteur sint occaecat cupidatat non proident, 
-        sunt in culpa qui officia deserunt mollit anim id est 
-        laborum.
-        </p>
+        <p><?php echo $artist['blurb']; ?></p>
     </div>
     <div class="galleryContainer">
         <h2>Gallery</h2>
@@ -88,9 +73,21 @@
     <div class="links">
         <h3>Social Media/Website Links</h3>
         <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
+            <?php
+                $links = explode(", ", $artist['external_links']);
+                foreach($links as $l){
+                    echo "<li><a href='$l'>$l</a></li>";
+                }
+            ?>
+        </ul>
+        <h3>Sources</h3>
+        <ul>
+            <?php
+                $links = explode(", ", $artist['sources']);
+                foreach($links as $l){
+                    echo "<li><a href='$l'>$l</a></li>";
+                }
+            ?>
         </ul>
     </div>
     <a href="#header" class="backToTop">Back to top</a>

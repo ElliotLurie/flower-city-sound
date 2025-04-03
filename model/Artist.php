@@ -9,10 +9,12 @@ class Artist{
         $this->conn = $db->getConn();
     }
 
-    function getArtist ($id){
-        $query = $this->conn->prepare ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers FROM Artist JOIN Page USING (id) WHERE id = :id");
-        $query->bind_param (":id", $id);
-        return $query->execute ()->fetch();
+    function getArtist($id){
+        $query = $this->conn->prepare ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers, Artist.year FROM Artist JOIN Page USING (id) WHERE id = :id");
+        $query->bindParam (":id", $id);
+        $query->execute();
+        $artist = $query->fetch();
+        return $artist;
     }
 
     function getArtists($group = -1, $genre = null, $activity = -1, $decade = null, $order = null){

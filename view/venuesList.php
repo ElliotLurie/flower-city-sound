@@ -63,7 +63,6 @@
             foreach ($venues as $v) {
                 $titleId = "{$v['title']} + {$v['id']}";
                 $titleId = str_replace(" ", "", $titleId);
-                // $titleId = $v["title"] + $v["id"];
                 $echoStr = 
                     "<div class='venEntries' onclick=\"goToVenuePage('$titleId');\">
                         <h4>{$v['title']}</h4>

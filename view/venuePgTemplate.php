@@ -11,7 +11,7 @@
 ?>
 <div class="topContent">
     <h1 class="name"><?php echo $venue['title']; ?></h1>
-    <p class="ya">Opened <?php echo $venue['open']; ?></p>
+    <p class="ya"><?php echo "{$venue['open']} - {$venue['year']}"; ?></p>
     <figure class="img">
         <img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px">
         <figcaption>image caption(credits)</figcaption>
