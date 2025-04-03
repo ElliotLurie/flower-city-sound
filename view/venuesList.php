@@ -22,11 +22,7 @@
             </select>
             <select id="decade" name="decade" onchange="this.form.submit()">
                 <option value="">Decade</option>
-                <option value="pre19">Pre-1900s</option>
-                <option value="1950">1910s</option>
-                <option value="1950">1920s</option>
-                <option value="1950">1930s</option>
-                <option value="1950">1940s</option>
+                <option value="pre50">Pre-1950s</option>
                 <option value="1950">1950s</option>
                 <option value="1960">1960s</option>
                 <option value="1970">1970s</option>
@@ -36,6 +32,7 @@
                 <option value="2010">2010s</option>
                 <option value="2020">2020s</option>
             </select>
+            <button type="button" onclick="location.href=location.href.split('?')[0]">Reset</button>
         </div>
         <div id="filterSort" onchange="this.form.submit()">
             <p>Sort:</p>

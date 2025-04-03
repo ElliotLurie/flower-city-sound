@@ -9,16 +9,14 @@ class Artist{
         $this->conn = $db->getConn();
     }
 
-    function getArtist($id){
-        $query = $this->conn->prepare ("SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers, Artist.year FROM Artist JOIN Page USING (id) WHERE id = :id");
-        $query->bindParam (":id", $id);
-        $query->execute();
-        $artist = $query->fetch();
-        return $artist;
+    function getArtist ($id){
+        $query = $this->conn->prepare ("SELECT Page.id, Page.body, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.labels, Artist.publishers, Artist.types, Artist.year_disbanded, Artist.year_founded FROM Artist JOIN Page USING (id) WHERE id = :id");
+        $query->bind_param (":id", $id);
+        return $query->execute ()->fetch();
     }
 
     function getArtists($group = -1, $genre = null, $activity = -1, $decade = null, $order = null){
-        $queryString = "SELECT Page.id, Page.blurb, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.publishers FROM Artist JOIN Page USING (id)";
+        $queryString = "SELECT Page.id, Page.last_modified, Page.thumbnail, Page.title, Artist.genres FROM Artist JOIN Page USING (id)";
 
         if ($group != -1) {
             $GROUP_STRING = "JOIN MemberOfGroup ON (Page.id=MemberOfGroup.group_id)";
@@ -38,21 +36,29 @@ class Artist{
 
             if ($activity != -1) {
                 if ($prev) $queryString .= " AND ";
-                $queryString .= "active = $activity";
+                $queryString .= "year_disbanded IS ";
+
+                if ($activity == 0) $queryString .= "NOT ";
+                $queryString .= "NULL";
                 $prev = true;
             }
             
             if ($decade != null) {
                 if ($prev) $queryString .= " AND ";
 
-                if ($decade == "pre19") $queryString .= "year < 1900";
-                else $queryString .= "year >= $decade AND year <= $decade + 10";
+                if ($decade == "pre50") $queryString .= "year_disbanded IS NOT NULL AND year_disbanded < 1950";
+                else $queryString .= "(year_disbanded >= $decade OR year_disbanded IS NULL) AND year_founded <= $decade";
             }
         }
 
         $rows = array();
+        $query = null;
 
-        $query = $this->conn->query ($queryString);
+        try{
+            $query = $this->conn->query ($queryString);
+        } catch (PDOException $pe){
+            die("Failed to load database with $queryString:\n" . $pe->getMessage());
+        }
 
         while ($row = $query->fetch())
             $rows[]=$row;
