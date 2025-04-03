@@ -1,17 +1,16 @@
 <?php
+include "../model/Search.php";
+
 // validate and sanitize
 class SearchController{
-    public function __construct(){
+    private $model;
 
+    public function __construct(){
+        $this->model = new Search();
     }
 
     // search through DB
-    function search(){
-
-    }
-
-    // filter results (genre, activity status, decade, type)
-    function filter(){
-
+    function search($filter, $type, $sort){
+        return $this->model->search($filter, $type, $sort);
     }
 }

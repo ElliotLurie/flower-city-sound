@@ -27,7 +27,7 @@
         <!-- SEARCH BAR HERE -->
         <div id="SBContainer">
             <form action="../view/search.php">
-                <input id="searchBar" type="text" placeholder="Search..."/>
+                <input id="searchBar" name="filter" type="text" placeholder="Search..."/>
             </form>
         </div>
     </div>
