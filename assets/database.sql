@@ -10,7 +10,6 @@ DROP TABLE IF EXISTS EventAtVenue;
 
 CREATE TABLE Page (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  blurb TEXT NOT NULL,
   body TEXT NOT NULL,
   external_links TEXT,
   last_modified TEXT NOT NULL,
@@ -19,12 +18,22 @@ CREATE TABLE Page (
   title TEXT NOT NULL UNIQUE
 );
 
+CREATE TABLE Photo (
+  page_id INT NOT NULL,
+  name TEXT NOT NULL UNIQUE,
+  image BLOB NOT NULL,
+  FOREIGN KEY (page_id) REFERENCES Page (id),
+  PRIMARY KEY (page_id, name)
+);
+
 CREATE TABLE Artist (
   id INT NOT NULL PRIMARY KEY,
-  active INT NOT NULL,
   genres TEXT,
+  labels TEXT,
   publishers TEXT,
-  year INT NOT NULL,
+  types TEXT,
+  year_disbanded INT,
+  year_founded INT NOT NULL,
   FOREIGN KEY (id) REFERENCES Page (id)
 );
 
@@ -38,7 +47,12 @@ CREATE TABLE MemberOfGroup (
 
 CREATE TABLE Event (
   id INT NOT NULL PRIMARY KEY,
-  time TEXT,
+  date_start TEXT,
+  date_end TEXT,
+  entry_fee REAL,
+  genres TEXT,
+  time_start TEXT,
+  time_end TEXT,
   type TEXT CHECK (type IN ('concert', 'meet')),
   FOREIGN KEY (id) REFERENCES Page (id)
 );
@@ -51,13 +65,19 @@ CREATE TABLE ArtistAtEvent (
   PRIMARY KEY (artist_id, event_id)
 );
 
-
 CREATE TABLE Venue (
   id INT NOT NULL PRIMARY KEY,
+  access_features TEXT,
   address TEXT,
+  age TEXT,
+  contact TEXT,
+  food INT,
+  genres TEXT,
   hours TEXT,
-  open INT NOT NULL,
-  year INT NOT NULL,
+  stage_size TEXT,
+  space_type CHECK (space_type IN ('indoors', 'covered', 'outdoors')),
+  year_closed INT,
+  year_opened INT NOT NULL,
   FOREIGN KEY (id) REFERENCES Page (id)
 );
 
