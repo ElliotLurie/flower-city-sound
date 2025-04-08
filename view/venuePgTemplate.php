@@ -5,13 +5,13 @@
     $venueId = explode(" ", $titleId)[1];
     $venueController = new VenueController();
     $venue = $venueController->getVenue($venueId);
-    $title = "Flower City Sound - {$venue['title']}";
+    // $title = "Flower City Sound - {$venue['title']}";
     include("../view/include/header.php");
 
 ?>
 <div class="topContent">
     <h1 class="name"><?php echo $venue['title']; ?></h1>
-    <p class="ya"><?php echo "{$venue['open']} - {$venue['year']}"; ?></p>
+    <p class="ya"><?php echo "{$venue['year_opened']} - {$venue['year_closed']}"; ?></p>
     <figure class="img">
         <img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px">
         <figcaption>image caption(credits)</figcaption>

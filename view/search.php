@@ -15,13 +15,14 @@
     $sort = isset ($_GET ["sort"]) ? $_GET ["sort"] : "";
 
 ?>
-<div>
+<div class="top">
     <h1>Search Results</h1>
 </div>
 <div>
     <!-- Filtering and sorting -->
     <form id="filter" method="get" onsubmit="return false">
         <div>
+            <p>Filter:</p>
             <select id="type" name="type" onchange="this.form.submit()">
                 <option value="">Type</option>
                 <option value="artist">Artist</option>
@@ -45,15 +46,24 @@
             // pulls all results and populates the page using an html 'template'
             // will need pagination
             $pages = $searchController->search($_GET['filter'], $type, $sort);
-
+            $titleId = "{$p['title']} + {$p['id']}";
+            $titleId = str_replace(" ", "", $titleId);
             // return as array of results
             $echoStr = "";
             // for each result, populate a div with info
             foreach ($pages as $p) {
-                $echoStr = 
-                    "<div>
+                if(isset($p['address'])) {
+                    $echoStr = 
+                    "<div class='entries' onclick=\"goToVenuePage('$titleId');\">
                         <h4>{$p['title']}</h4>
                     </div>";
+                } else {
+                    $echoStr = 
+                    "<div class='entries' onclick=\"goToArtistPage('$titleId');\">
+                        <h4>{$p['title']}</h4>
+                    </div>";
+                }
+                
                 echo $echoStr;
             }
         ?>

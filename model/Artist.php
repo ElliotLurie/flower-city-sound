@@ -11,8 +11,10 @@ class Artist{
 
     function getArtist ($id){
         $query = $this->conn->prepare("SELECT Page.id, Page.body, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.labels, Artist.publishers, Artist.types, Artist.year_disbanded, Artist.year_founded FROM Artist JOIN Page USING (id) WHERE id = :id");
-        $query->bindParam(":id", $id);
-        return $query->execute()->fetch();
+        $query->bindParam (":id", $id);
+        $query->execute();
+        $artist->fetch();
+        return $artist;
     }
 
     function getArtists($group = -1, $genre = null, $activity = -1, $decade = null, $order = null){

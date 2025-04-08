@@ -34,6 +34,10 @@ function goToVenuePage(titleId){
     window.location.href = `https://people.rit.edu/oms4556/FCS/flower-city-sound/view/venuePgTemplate.php?venue=${titleId}`;
 }
 
+function goToEntryPage(titleId){
+    window.location.href = `https://people.rit.edu/oms4556/FCS/flower-city-sound/view/venuePgTemplate.php?entry=${titleId}`;
+}
+
 
 // document.getElementById("txtChange").addEventListener("load", txtChange());
 function txtChange(){
