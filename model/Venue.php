@@ -36,10 +36,15 @@ class Venue {
             if ($decade != null){
                 if ($prev) $queryString .= " AND ";
 
+
                 if ($decade == "pre50") $queryString .= "year_closed IS NOT NULL AND year_closed < 1950";
                 else $queryString .= "(year_closed >= $decade OR year_closed IS NULL) AND year_opened <= $decade";
 
             }
+        }
+
+        if ($order != null){
+            $queryString .= " ORDER BY " . str_replace("-", "_", $order);
         }
 
         $rows = array();

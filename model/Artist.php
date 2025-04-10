@@ -50,7 +50,12 @@ class Artist{
 
                 if ($decade == "pre50") $queryString .= "year_disbanded IS NOT NULL AND year_disbanded < 1950";
                 else $queryString .= "(year_disbanded >= $decade OR year_disbanded IS NULL) AND year_founded <= $decade";
+
             }
+        }
+
+        if ($order != null){
+            $queryString .= " ORDER BY " . str_replace("-", "_",$order);
         }
 
         $rows = array();

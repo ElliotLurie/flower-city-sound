@@ -33,9 +33,9 @@
         <div>
             <p>Sort:</p>
             <div id="sort-bar">
-                <input type="radio" id="title" name="sort" value="title" onchange="this.form.submit()">
+                <input type="radio" id="title" name="sort" value="title">
                 <label for="title">Title</label>
-                <input type="radio" id="last-modified" name="sort" value="last-modified" onchange="this.form.submit()">
+                <input type="radio" id="last-modified" name="sort" value="last-modified">
                 <label for="last-modified">Last Modified</label>
               </div>
           </div>
@@ -74,7 +74,10 @@ for (const child of document.getElementById("type").children)
     if (child.value == "<?php echo $type?>") child.selected = true;
 
 for (const child of document.getElementById("sort-bar").children)
-    if (child.tagName == "INPUT" && child.value == "<?php echo $sort?>")
-      child.checked = true;
+    if (child.tagName == "INPUT"){
+        child.addEventListener("change", () => {child.form.submit()});
+        if (child.value == "<?php echo $sort?>")
+            child.checked = true;
+    }
 </script>
 <?php include("../view/include/footer.php"); ?>

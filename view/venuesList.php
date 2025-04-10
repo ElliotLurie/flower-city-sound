@@ -34,13 +34,13 @@
             </select>
             <button type="button" onclick="location.href=location.href.split('?')[0]">Reset</button>
         </div>
-        <div id="filterSort" onchange="this.form.submit()">
+        <div id="sort-bar">
             <p>Sort:</p>
-            <input type="radio" id="name" name="sort" value="name">
+            <input type="radio" id="name" name="sort" value="title">
             <label for="name">Name</label>
-            <input type="radio" id="year" name="sort" value="year">
+            <input type="radio" id="year" name="sort" value="year-opened">
             <label for="year">Year</label>
-            <input type="radio" id="recent" name="sort" value="recent">
+            <input type="radio" id="recent" name="sort" value="last-modified">
             <label for="recent">Recently Added</label>
         </div>
     </form>
@@ -49,11 +49,12 @@
         <?php
             $decade = $_GET ["decade"] != "" ? $_GET ["decade"] : null;
             $status = $_GET ["status"] != "" ? ($_GET ["status"] == "open" ? 1 : 0) : -1;
+            $sort = $_GET ["sort"] != "" ? $_GET ["sort"] : null;
 
             // pulls all results and populates the page using an html 'template'
             // will need pagination
             // return as array of results
-            $venues = $venueController->getVenues($status, $decade);
+            $venues = $venueController->getVenues($status, $decade, $sort);
 
 
             // for each result, populate a div with info
@@ -76,5 +77,13 @@ for (const child of document.getElementById("status").children)
 
 for (const child of document.getElementById("decade").children)
     if (child.value == "<?php echo $_GET ["decade"]?>") child.selected = true;
+
+for (const child of document.getElementById("sort-bar").children)
+    if (child.tagName == "INPUT"){
+        child.addEventListener("change", () => {child.form.submit()});
+        if (child.value == "<?php echo $sort?>")
+            child.checked = true;
+    }
+
 </script>
 <?php include("../view/include/footer.php"); ?>

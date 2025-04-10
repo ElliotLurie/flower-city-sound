@@ -53,14 +53,14 @@
             </select>
             <button type="button" onclick="location.href=location.href.split('?')[0]">Reset</button>
         </div>
-        <div id="filterSort" onchange="this.form.submit()">
+        <div id="sort-bar">
             <p>Sort:</p>
-            <input type="radio" id="name" name="sort" value="name">
+            <input type="radio" id="name" name="sort" value="title">
             <label for="name">Name</label>
-            <input type="radio" id="year" name="sort" value="year">
+            <input type="radio" id="year" name="sort" value="year-founded">
             <label for="year">Year</label>
-            <input type="radio" id="recent" name="sort" value="recent">
-            <label for="recent">Recently Added</label>
+            <input type="radio" id="recent" name="sort" value="last-modified">
+            <label for="recent">Last Modified</label>
         </div>
     </form>
     <!-- div that will hold returned artist's divs and format them into a grid using flex -->
@@ -70,10 +70,11 @@
             $activity = $_GET ["activity"] != "" ? ($_GET ["activity"] == "act" ? 1 : 0) : -1;
             $genre = $_GET ["genre"] != "" ? $_GET ["genre"] : null;
             $decade = $_GET ["decade"] != "" ? $_GET ["decade"] : null;
+            $sort = $_GET ["sort"] != "" ? $_GET ["sort"] : null;
             // pulls all individual artists and populates the page using an html 'template'
             // will need pagination
             // return as array of artists
-            $artists = $artistController->getArtists($group, $genre, $activity, $decade);
+            $artists = $artistController->getArtists($group, $genre, $activity, $decade, $sort);
             // for each artist, populate a div with info
             foreach ($artists as $a) {
                 $titleId = "{$a['title']} + {$a['id']}";
@@ -101,6 +102,12 @@ for (const child of document.getElementById("activity").children)
 for (const child of document.getElementById("decade").children)
     if (child.value == "<?php echo $_GET ["decade"]?>") child.selected = true;
 
+for (const child of document.getElementById("sort-bar").children)
+    if (child.tagName == "INPUT"){
+        child.addEventListener("change", () => {child.form.submit()});
+        if (child.value == "<?php echo $sort?>")
+            child.checked = true;
+    }
 </script>
 
 
