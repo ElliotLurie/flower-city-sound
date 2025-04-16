@@ -9,6 +9,10 @@ class SearchController{
         $this->model = new Search();
     }
 
+    function getPageType($id){
+        return $this->model->getPageType($id);
+    }
+
     // search through DB
     function search($filter, $type, $sort){
         return $this->model->search($filter, $type, $sort);

@@ -13,7 +13,7 @@ class Artist{
         $query = $this->conn->prepare("SELECT Page.id, Page.body, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.labels, Artist.publishers, Artist.types, Artist.year_disbanded, Artist.year_founded FROM Artist JOIN Page USING (id) WHERE id = :id");
         $query->bindParam (":id", $id);
         $query->execute();
-        $artist->fetch();
+        $artist = $query->fetch();
         return $artist;
     }
 

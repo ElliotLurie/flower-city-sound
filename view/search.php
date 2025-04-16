@@ -42,42 +42,28 @@
       </form>
       <!-- div that will hold returned divs and format them into a grid using flex -->
       <div class="listedEntries">
-        <?php
-            // pulls all results and populates the page using an html 'template'
-            // will need pagination
-            $pages = $searchController->search($_GET['filter'], $type, $sort);
-            $titleId = "{$p['title']} + {$p['id']}";
-            $titleId = str_replace(" ", "", $titleId);
-            // return as array of results
-            $echoStr = "";
-            // for each result, populate a div with info
-            foreach ($pages as $p) {
-                if(isset($p['address'])) {
-                    $echoStr = 
-                    "<div class='entries' onclick=\"goToVenuePage('$titleId');\">
-                        <h4>{$p['title']}</h4>
-                    </div>";
-                } else {
-                    $echoStr = 
-                    "<div class='entries' onclick=\"goToArtistPage('$titleId');\">
-                        <h4>{$p['title']}</h4>
-                    </div>";
-                }
-                
-                echo $echoStr;
-            }
+          <?php
+              // pulls all results and populates the page using an html 'template'
+              // will need pagination
+              $pages = $searchController->search($_GET['filter'], $type, $sort);
+              // return as array of results
+              // for each result, populate a div with info
+              foreach ($pages as $p) {
+                  $echoStr = "<a class='entry-link' href='./{$searchController->getPageType($p['id'])}.php?id={$p['id']}'><div class='entries'><h4>{$p['title']}</h4></div></a>";
+                  echo $echoStr;
+              }
         ?>
+        </div>
     </div>
-</div>
-<script>
-for (const child of document.getElementById("type").children)
-    if (child.value == "<?php echo $type?>") child.selected = true;
+    <script>
+    for (const child of document.getElementById("type").children)
+        if (child.value == "<?php echo $type?>") child.selected = true;
 
-for (const child of document.getElementById("sort-bar").children)
-    if (child.tagName == "INPUT"){
-        child.addEventListener("change", () => {child.form.submit()});
-        if (child.value == "<?php echo $sort?>")
-            child.checked = true;
-    }
-</script>
+    for (const child of document.getElementById("sort-bar").children)
+        if (child.tagName == "INPUT"){
+            child.addEventListener("change", () => {child.form.submit()});
+            if (child.value == "<?php echo $sort?>")
+                child.checked = true;
+        }
+    </script>
 <?php include("../view/include/footer.php"); ?>

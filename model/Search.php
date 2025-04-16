@@ -8,9 +8,24 @@ class Search {
         $this->conn = $db->getConn();
     }
 
+    function getPageType($id){
+        $page_type = "";
+
+        foreach (["Artist", "Venue"] as $table){
+            $query = $this->conn->query("SELECT id FROM $table WHERE id=$id");
+            $query->execute();
+            if ($query->fetch()){
+                $page_type = $table;
+                break;
+            }
+        }
+
+        return strtolower($page_type);
+    }
+
     // search through DB
     function search($filter, $type, $sort){
-        $queryString = "SELECT Page.title FROM Page";
+        $queryString = "SELECT id, title FROM Page";
 
         if ($type != "")
           $queryString .= " JOIN " . ucfirst($type) . " USING (id)";

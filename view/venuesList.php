@@ -56,16 +56,13 @@
             // return as array of results
             $venues = $venueController->getVenues($status, $decade, $sort);
 
-
             // for each result, populate a div with info
             foreach ($venues as $v) {
-                $titleId = "{$v['title']} + {$v['id']}";
-                $titleId = str_replace(" ", "", $titleId);
                 $echoStr = 
-                    "<div class='venEntries' onclick=\"goToVenuePage('$titleId');\">
+                    "<a class='entry-link' href='venue.php?id={$v['id']}'><div class='entries'>
                         <h4>{$v['title']}</h4>
                         <p>{$v['address']}</p>
-                    </div>";
+                    </div></a>";
                 echo $echoStr;
             }
         ?>

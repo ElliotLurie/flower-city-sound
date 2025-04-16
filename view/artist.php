@@ -1,62 +1,56 @@
 <?php 
     // set title
-    include('../controller/VenueController.php');
-    $titleId = $_GET['venue'];
-    $venueId = explode(" ", $titleId)[1];
-    $venueController = new VenueController();
-    $venue = $venueController->getVenue($venueId);
-    // $title = "Flower City Sound - {$venue['title']}";
+    include('../controller/ArtistController.php');
+    $titleId = $_GET['id'];
+    $artistId = explode(" ", $titleId)[1];
+    $artistController = new ArtistController();
+    $artist = $artistController->getArtist($artistId);
+    $title = "Flower City Sound - {$artist['title']}";
     include("../view/include/header.php");
-
 ?>
 <div class="topContent">
-    <h1 class="name"><?php echo $venue['title']; ?></h1>
-    <p class="ya"><?php echo "{$venue['year_opened']} - {$venue['year_closed']}"; ?></p>
+    <h1 class="name"><?php echo $artist['title']; ?></h1>
+    <p class="ya"><?php echo "{$artist['start']} - {$artist['year']}"; ?></p>
     <figure class="img">
         <img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px">
         <figcaption>image caption(credits)</figcaption>
     </figure>
     <div class="side">
         <div>
-            <h4>Age Policy:</h4>
-            <p>All ages</p>
+            <h4>Music Type</h4>
+            <p>Covers, parodies, and/or original music</p>
         </div>
         <div>
-            <h4>Does this venue serve food?</h4>
-            <p>No</p>
+            <h4>Publishers</h4>
+            <p><?php echo $artist['publishers']; ?></p>
         </div>
         <div>
-            <h4>Capacity</h4>
-            <p>12,428</p>
+            <h4>Label(s)</h4>
+            <p>Label, Label, Label</p>
+        </div>
+        <div>
+            <h4>Connections</h4>
+            <p>Connection name, connection name</p>
         </div>
     </div>
     <div class="bottomContainer">
         <div class="bottom">
             <div>
-                <h4>Address</h4>
-                <p><?php echo $venue['address']; ?></p>
+                <h4>Members</h4>
+                <p>Member 1, member 2, member 3, etc...</p>
             </div>
             <div>
-                <h4>Hours</h4>
-                <p>
-                    <?php 
-                        $hours = str_replace(", ", "<br>", $venue['hours']);
-                        echo $hours; 
-                    ?>
-                </p>
+                <h4>Genres</h4>
+                <p><?php echo $artist['genres']; ?></p>
             </div>
-            <div>
-            <h4>Booking Contact</h4>
-            <p>personsname@gmail.com</p>
-        </div>
         </div>
         
     </div>
 </div>
 <div class="bottomContent">
     <div>
-        <h2>About <?php echo $venue['title']; ?></h2>
-        <p><?php echo $venue['blurb']; ?></p>
+        <h2>About [Artist name]</h2>
+        <p><?php echo $artist['blurb']; ?></p>
     </div>
     <div class="galleryContainer">
         <h2>Gallery</h2>
@@ -80,7 +74,7 @@
         <h3>Social Media/Website Links</h3>
         <ul>
             <?php
-                $links = explode(", ", $venue['external_links']);
+                $links = explode(", ", $artist['external_links']);
                 foreach($links as $l){
                     echo "<li><a href='$l'>$l</a></li>";
                 }
@@ -89,7 +83,7 @@
         <h3>Sources</h3>
         <ul>
             <?php
-                $links = explode(", ", $venue['sources']);
+                $links = explode(", ", $artist['sources']);
                 foreach($links as $l){
                     echo "<li><a href='$l'>$l</a></li>";
                 }

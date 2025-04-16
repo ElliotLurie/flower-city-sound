@@ -77,13 +77,11 @@
             $artists = $artistController->getArtists($group, $genre, $activity, $decade, $sort);
             // for each artist, populate a div with info
             foreach ($artists as $a) {
-                $titleId = "{$a['title']} + {$a['id']}";
-                $titleId = str_replace(" ", "", $titleId);
                 $echoStr = 
-                    "<div class='artEntries' onclick=\"goToArtistPage('$titleId');\">
+                    "<a class='entry-link' href='artist.php?id={$a['id']}'><div class='entries'>
                         <h4>{$a['title']}</h4>
                         <p>{$a['genres']}</p>
-                    </div>";
+                    </div></a>";
                 echo $echoStr;
             }
         ?>
