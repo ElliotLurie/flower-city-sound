@@ -311,6 +311,8 @@ hr {
 
 .name {
     grid-area: name;
+    color: white;
+    background-color: #00266E;
 }
 
 .ya {
@@ -478,6 +480,14 @@ hr {
 .entries:not(:hover) {
     transition: box-shadow 0.5s;
     box-shadow: none;
+}
+
+/* ADDITIONAL RESOURCES */
+
+.addRes{
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
 }
 
 @media screen and (max-width: 790px) {

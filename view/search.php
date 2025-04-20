@@ -49,8 +49,10 @@
               // return as array of results
               // for each result, populate a div with info
               foreach ($pages as $p) {
-                  $echoStr = "<a class='entry-link' href='./{$searchController->getPageType($p['id'])}.php?id={$p['id']}'><div class='entries'><h4>{$p['title']}</h4></div></a>";
-                  echo $echoStr;
+                $name = str_replace(" ", "", $p['title']);
+                $pgType = $searchController->getPageType($p['id']);
+                $echoStr = "<a class='entry-link' href='./{$pgType}.php?{$pgType}={$name}+{$p['id']}'><div class='entries'><h4>{$p['title']}</h4></div></a>";
+                echo $echoStr;
               }
         ?>
         </div>

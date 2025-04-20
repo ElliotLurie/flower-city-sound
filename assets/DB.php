@@ -4,7 +4,7 @@ class DB{
 
     public function __construct(){
         $path = "../assets/fcs.db";
-        if (!file_exists ($path)){
+        if (file_exists ($path)){
             $path = "../../adminer/fcs.db";
         }
         // connection to DB

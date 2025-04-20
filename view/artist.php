@@ -1,7 +1,7 @@
 <?php 
     // set title
     include('../controller/ArtistController.php');
-    $titleId = $_GET['id'];
+    $titleId = $_GET['artist'];
     $artistId = explode(" ", $titleId)[1];
     $artistController = new ArtistController();
     $artist = $artistController->getArtist($artistId);
@@ -18,7 +18,7 @@
     <div class="side">
         <div>
             <h4>Music Type</h4>
-            <p>Covers, parodies, and/or original music</p>
+            <p><?php echo $artist['types']; ?></p>
         </div>
         <div>
             <h4>Publishers</h4>
@@ -26,18 +26,18 @@
         </div>
         <div>
             <h4>Label(s)</h4>
-            <p>Label, Label, Label</p>
+            <p><?php echo $artist['labels']; ?></p>
         </div>
         <div>
             <h4>Connections</h4>
-            <p>Connection name, connection name</p>
+            <p><?php echo $artist['connections']; ?></p>
         </div>
     </div>
     <div class="bottomContainer">
         <div class="bottom">
             <div>
                 <h4>Members</h4>
-                <p>Member 1, member 2, member 3, etc...</p>
+                <p><?php echo $artist['members']; ?></p>
             </div>
             <div>
                 <h4>Genres</h4>
@@ -50,7 +50,7 @@
 <div class="bottomContent">
     <div>
         <h2>About [Artist name]</h2>
-        <p><?php echo $artist['blurb']; ?></p>
+        <p><?php echo $artist['body']; ?></p>
     </div>
     <div class="galleryContainer">
         <h2>Gallery</h2>

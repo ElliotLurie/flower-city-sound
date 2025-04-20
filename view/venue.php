@@ -1,11 +1,11 @@
 <?php 
     // set title
     include('../controller/VenueController.php');
-    $titleId = $_GET['id'];
+    $titleId = $_GET['venue'];
     $venueId = explode(" ", $titleId)[1];
     $venueController = new VenueController();
     $venue = $venueController->getVenue($venueId);
-    // $title = "Flower City Sound - {$venue['title']}";
+    $title = "Flower City Sound - {$venue['title']}";
     include("../view/include/header.php");
 
 ?>
@@ -19,15 +19,23 @@
     <div class="side">
         <div>
             <h4>Age Policy:</h4>
-            <p>All ages</p>
+            <p><?php echo $venue['age']; ?></p>
         </div>
         <div>
             <h4>Does this venue serve food?</h4>
-            <p>No</p>
+            <p>
+                <?php 
+                    if($venue['food'] == 0){
+                        echo "No";
+                    } else if ($venue['food'] == 1){
+                        echo "Yes";
+                    }
+                ?>
+            </p>
         </div>
         <div>
             <h4>Capacity</h4>
-            <p>12,428</p>
+            <p><?php echo $venue['capacity']; ?></p>
         </div>
     </div>
     <div class="bottomContainer">
@@ -47,7 +55,7 @@
             </div>
             <div>
             <h4>Booking Contact</h4>
-            <p>personsname@gmail.com</p>
+            <p><?php echo $venue['contact']; ?></p>
         </div>
         </div>
         
@@ -56,7 +64,7 @@
 <div class="bottomContent">
     <div>
         <h2>About <?php echo $venue['title']; ?></h2>
-        <p><?php echo $venue['blurb']; ?></p>
+        <p><?php echo $venue['body']; ?></p>
     </div>
     <div class="galleryContainer">
         <h2>Gallery</h2>
