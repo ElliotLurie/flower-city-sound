@@ -11,7 +11,7 @@ class Venue {
 
     // not sure if this will be needed rn
     function getVenue($id){
-        $query = $this->conn->prepare ("SELECT Page.id, Page.body, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Venue.access_features, Venue.address, Venue.age, Venue.contact, Venue.food, Venue.genres, Venue.hours, Venue.stage_size, Venue.space_type, Venue.year_closed, Venue.year_opened FROM Venue JOIN Page USING (id) WHERE id = :id");
+        $query = $this->conn->prepare ("SELECT * FROM Venue JOIN Page USING (id) WHERE id = :id");
         $query->bindParam(":id", $id);
         $query->execute();
         $venue = $query->fetch();
@@ -36,7 +36,6 @@ class Venue {
 
             if ($decade != null){
                 if ($prev) $queryString .= " AND ";
-
 
                 if ($decade == "pre50") $queryString .= "year_closed IS NOT NULL AND year_closed < 1950";
                 else $queryString .= "(year_closed >= $decade OR year_closed IS NULL) AND year_opened <= $decade";

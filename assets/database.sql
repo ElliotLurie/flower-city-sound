@@ -48,7 +48,7 @@ CREATE TABLE MemberOfGroup (
 
 CREATE TABLE Event (
   id INT NOT NULL PRIMARY KEY,
-  date_start TEXT,
+  date_start TEXT NOT NULL,
   date_end TEXT,
   entry_fee REAL,
   genres TEXT,

@@ -4,8 +4,10 @@
     include("../view/include/header.php");
     // controller(s)
     include("../controller/ArtistController.php");
+    include("../controller/EventController.php");
     include("../controller/VenueController.php");
     $artistController = new ArtistController();
+    $eventController = new EventController();
     $venueController = new VenueController();
 ?>
 <div class="top" id="topHome">
@@ -56,7 +58,7 @@
                 $name = str_replace ("", " ", $v["title"]);
                 echo
                     "<a class='entry-link' href='artist.php?artist={$name}+{$v['id']}'><figure class='img'>
-                        <img src=\"data:image;base64," . base64_encode($v["thumbnail"]) . "\" alt='Artist thumbnail'>
+                        <img src=\"data:image;base64," . base64_encode($v["thumbnail"]) . "\" alt='Venue thumbnail'>
                         <figcaption>{$v["title"]})</figcaption>
                     </figure></a>";
             }
@@ -71,12 +73,13 @@
     <h2>Upcoming Events</h2>
     <div id="upcomingEvents">
         <?php
-            foreach ($artistController->getRandom(5) as $a){
-                $name = str_replace ("", " ", $a["title"]);
+            foreach ($eventController->getRecent(5) as $e){
+                $name = str_replace ("", " ", $e["title"]);
+                /* Link: href='event.php?artist={$name}+{$e['id']}'*/
                 echo
-                    "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
-                        <img src=\"data:image;base64," . base64_encode($a["thumbnail"]) . "\" alt='Artist thumbnail'>
-                        <figcaption>{$a["title"]})</figcaption>
+                    "<a class='entry-link'><figure class='img'>
+                        <img src=\"data:image;base64," . base64_encode($e["thumbnail"]) . "\" alt='Event thumbnail'>
+                        <figcaption>{$e["title"]})<br>{$e["start_date"]}</figcaption>
                     </figure></a>";
             }
         ?>
