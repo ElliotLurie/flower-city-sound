@@ -1,5 +1,5 @@
 <?php
-include("../assets/DB.php");
+include_once("../assets/DB.php");
 
 class Artist{
     private $conn;

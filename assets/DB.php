@@ -4,7 +4,7 @@ class DB{
 
     public function __construct(){
         $path = "../assets/fcs.db";
-        if (file_exists ($path)){
+        if (!file_exists ($path)){
             $path = "../../adminer/fcs.db";
         }
         // connection to DB
@@ -12,7 +12,7 @@ class DB{
             $this->dbh = new PDO("sqlite:" . $path);
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $pe) {
-            die("Failed to load database: " . $pe->getMessage());
+            die("Failed to load database $path: " .  $pe->getMessage());
         }
     }
 

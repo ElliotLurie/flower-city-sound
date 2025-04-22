@@ -55,18 +55,16 @@
     <div class="galleryContainer">
         <h2>Gallery</h2>
         <div class="gallery">
-            <figure id="img">
-            <a target="_blank" href="../assets/images/placeholder_img.jpg"><img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px"></a>
-            <figcaption>image caption(credits)</figcaption>
-            </figure>
-            <figure id="img">
-                <a target="_blank" href="../assets/images/placeholder_img.jpg"><img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px"></a>
-                <figcaption>image caption(credits)</figcaption>
-            </figure>
-            <figure id="img">
-                <a target="_blank" href="../assets/images/placeholder_img.jpg"><img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px"></a>
-                <figcaption>image caption(credits)</figcaption>
-            </figure>
+            <?php
+                foreach ($pageController->getPhotos($venueId) as $photo){
+                    echo
+                        "<figure class='img'>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["data"]) . "\">
+                            <figcaption>{$photo["caption"]} ({$photo["credits"]})</figcaption>
+                        </figure>";
+                }
+            ?>
+
         </div>
         
     </div>

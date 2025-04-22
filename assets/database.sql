@@ -20,10 +20,11 @@ CREATE TABLE Page (
 
 CREATE TABLE Photo (
   page_id INT NOT NULL,
-  name TEXT NOT NULL UNIQUE,
-  image BLOB NOT NULL,
+  caption TEXT NOT NULL,
+  credits TEXT NOT NULL,
+  data BLOB NOT NULL,
   FOREIGN KEY (page_id) REFERENCES Page (id),
-  PRIMARY KEY (page_id, name)
+  PRIMARY KEY (page_id)
 );
 
 CREATE TABLE Artist (

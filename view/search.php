@@ -3,8 +3,8 @@
     $title = "Flower City Sound - Home";
     include("../view/include/header.php");
     // controller(s)
-    include("../controller/SearchController.php");
-    $searchController = new SearchController();
+    include("../controller/PageController.php");
+    $pageController = new PageController();
     $pages = [];
 
     session_start ();
@@ -45,12 +45,12 @@
           <?php
               // pulls all results and populates the page using an html 'template'
               // will need pagination
-              $pages = $searchController->search($_GET['filter'], $type, $sort);
+              $pages = $pageController->search($_GET['filter'], $type, $sort);
               // return as array of results
               // for each result, populate a div with info
               foreach ($pages as $p) {
                 $name = str_replace(" ", "", $p['title']);
-                $pgType = $searchController->getPageType($p['id']);
+                $pgType = $pageController->getPageType($p['id']);
                 $echoStr = "<a class='entry-link' href='./{$pgType}.php?{$pgType}={$name}+{$p['id']}'><div class='entries'><h4>{$p['title']}</h4></div></a>";
                 echo $echoStr;
               }
