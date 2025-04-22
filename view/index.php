@@ -4,7 +4,9 @@
     include("../view/include/header.php");
     // controller(s)
     include("../controller/ArtistController.php");
+    include("../controller/VenueController.php");
     $artistController = new ArtistController();
+    $venueController = new VenueController();
 ?>
 <div class="top" id="topHome">
     <!-- <h1>
@@ -33,36 +35,32 @@
 <!-- Featured Artists -->
 <div id="FBackground"></div>
 <div id="featured">
-    <figure>
-        <img src="../assets/images/placeholder_img.jpg" alt="Band One Img">
-        <figcaption>Band One</figcaption>
-    </figure>
-    <figure>
-        <img src="../assets/images/placeholder_img.jpg" alt="Band Two Img">
-        <figcaption>Band Two</figcaption>
-    </figure>
-    <figure>
-        <img src="../assets/images/placeholder_img.jpg" alt="Band Three Img">
-        <figcaption>Band Three</figcaption>
-    </figure>
+    <?php
+        foreach ($artistController->getRandom(5) as $a){
+            $name = str_replace ("", " ", $a["title"]);
+            echo
+                "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
+                    <img src=\"data:image;base64," . base64_encode($a["thumbnail"]) . "\" alt='Artist thumbnail'>
+                    <figcaption>{$a["title"]})</figcaption>
+                </figure></a>";
+        }
+    ?>
 </div>
 
 <hr>
 <div id="FVContainer">
     <h2>Featured Venues</h2>
     <div id="featuredVenues">
-        <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Venue One Img">
-            <figcaption>Venue One</figcaption>
-        </figure>
-        <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Venue Two Img">
-            <figcaption>Venue Two</figcaption>
-        </figure>
-        <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Venue Three Img">
-            <figcaption>Venue Three</figcaption>
-        </figure>
+        <?php
+            foreach ($venueController->getRandom(5) as $v){
+                $name = str_replace ("", " ", $v["title"]);
+                echo
+                    "<a class='entry-link' href='artist.php?artist={$name}+{$v['id']}'><figure class='img'>
+                        <img src=\"data:image;base64," . base64_encode($v["thumbnail"]) . "\" alt='Artist thumbnail'>
+                        <figcaption>{$v["title"]})</figcaption>
+                    </figure></a>";
+            }
+        ?>
     </div>
 </div>
 
@@ -72,21 +70,16 @@
 <div id="UEContainer">
     <h2>Upcoming Events</h2>
     <div id="upcomingEvents">
-        <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event One Img">
-            <figcaption>Event One</figcaption>
-            <p>04/14/2025</p>
-        </figure>
-        <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event Two Img">
-            <figcaption>Event Two</figcaption>
-            <p>05/18/2025</p>
-        </figure>
-        <figure>
-            <img src="../assets/images/placeholder_img.jpg" alt="Event Three Img">
-            <figcaption>Event Three</figcaption>
-            <p>06/25/2025</p>
-        </figure>
+        <?php
+            foreach ($artistController->getRandom(5) as $a){
+                $name = str_replace ("", " ", $a["title"]);
+                echo
+                    "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
+                        <img src=\"data:image;base64," . base64_encode($a["thumbnail"]) . "\" alt='Artist thumbnail'>
+                        <figcaption>{$a["title"]})</figcaption>
+                    </figure></a>";
+            }
+        ?>
     </div>
 </div>
 <?php include("../view/include/footer.php") ?>

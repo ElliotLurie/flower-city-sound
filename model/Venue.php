@@ -61,4 +61,15 @@ class Venue {
         }
         return $rows;
     }
+
+    function getRandom($count){
+        $query = $this->conn->prepare("SELECT * FROM Venue JOIN Page USING (id) ORDER BY random() LIMIT $count");
+        $query->execute();
+
+        $rows = array();
+        while ($row = $query->fetch())
+            $rows[]=$row;
+
+        return $rows;
+    }
 }

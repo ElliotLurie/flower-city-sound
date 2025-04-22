@@ -9,7 +9,7 @@ class Artist{
         $this->conn = $db->getConn();
     }
 
-    function getArtist ($id){
+    function getArtist($id){
         $query = $this->conn->prepare("SELECT Page.id, Page.body, Page.external_links, Page.last_modified, Page.sources, Page.thumbnail, Page.title, Artist.genres, Artist.labels, Artist.publishers, Artist.types, Artist.year_disbanded, Artist.year_founded FROM Artist JOIN Page USING (id) WHERE id = :id");
         $query->bindParam (":id", $id);
         $query->execute();
@@ -73,30 +73,15 @@ class Artist{
         return $rows;
     }
 
-    // get all individual artists -- for display in view
-    function getAllIndividual(){
-        $rows = array();
-        $query = $this->conn->query ("SELECT Page.id, Page.blurb, Page.last_modified, Page.thumbnail, Page.title FROM Artist JOIN Page USING (id) LEFT JOIN MemberOfGroup ON (Page.id=MemberOfGroup.member_id)");
 
+    function getRandom($count){
+        $query = $this->conn->prepare("SELECT * FROM Artist JOIN Page USING (id) ORDER BY random() LIMIT $count");
+        $query->execute();
+
+        $rows = array();
         while ($row = $query->fetch())
             $rows[]=$row;
 
         return $rows;
-    }
-
-    // get all bands -- for display in view
-    function getAllGroup(){
-        $rows = array ();
-        $query = $this->conn->query ("SELECT Page.id, Page.blurb, Page.last_modified, Page.thumbnail, Page.title, FROM Artist JOIN Page USING (id) JOIN MemberOfGroup ON (Page.id=MemberOfGroup.group_id)");
-
-        while ($row = $query->fetch ())
-            $rows[]=$row;
-
-        return $rows;
-    }
-
-    // filter artists (genre, activity status, decade)
-    function filter(){
-      
     }
 }

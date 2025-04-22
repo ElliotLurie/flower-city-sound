@@ -16,4 +16,8 @@ Class ArtistController{
   function getArtists($group = -1, $genre = null, $activity = -1, $decade = null, $order = null){ 
     return $this->model->getArtists($group, $genre, $activity, $decade, $order);
   }
+
+  function getRandom($count){
+    return $this->model->getRandom($count);
+  }
 }
