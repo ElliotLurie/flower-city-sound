@@ -186,6 +186,10 @@ h1 {
     padding-bottom: 8px;
 }
 
+#featured figure .imgContainer, #featuredVenues figure .imgContainer, #upcomingEvents figure .imgContainer {
+    height: 300px;
+}
+
 #upcomingEvents figure {
     padding-bottom: 0;
 }
@@ -203,6 +207,7 @@ h1 {
 #featured figcaption, #featuredVenues figcaption, #upcomingEvents figcaption {
     padding-left: 10px;
     background-color: #f4f4f4;
+    width: 200px;
 }
 
 #featured p, #featuredVenues p, #upcomingEvents p {

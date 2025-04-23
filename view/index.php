@@ -38,13 +38,22 @@
 <div id="FBackground"></div>
 <div id="featured">
     <?php
-        foreach ($artistController->getRandom(5) as $a){
+        foreach ($artistController->getRandom(3) as $a){
             $name = str_replace ("", " ", $a["title"]);
-            echo
+            if($a['thumbnail'] == NULL){
+                echo
                 "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
-                    <img src=\"data:image;base64," . base64_encode($a["thumbnail"]) . "\" alt='Artist thumbnail'>
-                    <figcaption>{$a["title"]})</figcaption>
+                    <div class='imgContainer'><img src=\"../assets/images/placeholder_img.jpg\" alt='Artist thumbnail'></div>
+                    <figcaption>{$a["title"]}</figcaption>
                 </figure></a>";
+            } else {
+                echo
+                "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
+                    <div class='imgContainer'><img src=\"data:image;base64," . base64_encode($a["thumbnail"]) . "\" alt='Artist thumbnail'></div>
+                    <figcaption>{$a["title"]}</figcaption>
+                </figure></a>";
+            }
+            
         }
     ?>
 </div>
@@ -54,13 +63,22 @@
     <h2>Featured Venues</h2>
     <div id="featuredVenues">
         <?php
-            foreach ($venueController->getRandom(5) as $v){
+            foreach ($venueController->getRandom(3) as $v){
                 $name = str_replace ("", " ", $v["title"]);
-                echo
-                    "<a class='entry-link' href='artist.php?artist={$name}+{$v['id']}'><figure class='img'>
-                        <img src=\"data:image;base64," . base64_encode($v["thumbnail"]) . "\" alt='Venue thumbnail'>
-                        <figcaption>{$v["title"]})</figcaption>
+                if($v['thumbnail'] == NULL){
+                    echo
+                    "<a class='entry-link' href='venue.php?venue={$name}+{$v['id']}'><figure class='img'>
+                        <div class='imgContainer'><img src=\"../assets/images/placeholder_img.jpg\" alt='Venue thumbnail'></div>
+                        <figcaption>{$v["title"]}</figcaption>
                     </figure></a>";
+                } else {
+                    echo
+                    "<a class='entry-link' href='venue.php?venue={$name}+{$v['id']}'><figure class='img'>
+                        <div class='imgContainer'><img src=\"data:image;base64," . base64_encode($v["thumbnail"]) . "\" alt='Venue thumbnail'></div>
+                        <figcaption>{$v["title"]}</figcaption>
+                    </figure></a>";
+                }
+                
             }
         ?>
     </div>
