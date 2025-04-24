@@ -9,14 +9,22 @@
     $venue = $venueController->getVenue($venueId);
     $title = "Flower City Sound - {$venue['title']}";
     include("../view/include/header.php");
-
 ?>
 <div class="topContent">
     <h1 class="name"><?php echo $venue['title']; ?></h1>
     <p class="ya"><?php echo "{$venue['year_opened']} - {$venue['year_closed']}"; ?></p>
-    <figure class="img">
-        <img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px">
-        <figcaption>image caption(credits)</figcaption>
+    <figure class='img'>
+        <?php 
+            if($venue['thumbnail'] == NULL){
+                echo
+                "<img src=\"../assets/images/placeholder_img.jpg\" alt='Venue thumbnail'>
+                <figcaption>{$venue["title"]}</figcaption>";
+            } else {
+                echo
+                "<img src=\"data:image;base64," . base64_encode($venue["thumbnail"]) . "\" alt='Venue thumbnail'>
+                <figcaption>{$venue["title"]}</figcaption>";
+            }
+        ?>
     </figure>
     <div class="side">
         <div>
@@ -73,11 +81,29 @@
         <div class="gallery">
             <?php
                 foreach ($pageController->getPhotos($venueId) as $photo){
-                    echo
+                    if($photo['caption'] == null){
+                        echo
                         "<figure class='img'>
-                            <img width='300' src=\"data:image;base64," . base64_encode($photo["data"]) . "\">
-                            <figcaption>{$photo["caption"]} ({$photo["credits"]})</figcaption>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                            <figcaption>{$photo["credits"]}</figcaption>
                         </figure>";
+                    } else if ($photo['credits'] == null){
+                        echo
+                        "<figure class='img'>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                            <figcaption>{$photo["caption"]}</figcaption>
+                        </figure>";
+                    } else if ($photo['caption'] == null && $photo['credits'] == null){
+                        "<figure class='img'>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                        </figure>";
+                    } else {
+                        echo
+                        "<figure class='img'>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                            <figcaption>{$photo["caption"]}: {$photo["credits"]}</figcaption>
+                        </figure>";
+                    }
                 }
             ?>
         </div>

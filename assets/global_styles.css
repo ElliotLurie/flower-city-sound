@@ -154,6 +154,8 @@ body > div {
 h1 {
     padding: 0;
     margin: 0;
+    font-family: "Special Gothic Expanded One", "Arial", sans-serif;
+    font-weight: lighter;
 }
 
 #topHome h1 {
@@ -312,6 +314,10 @@ hr {
 
 .topContent h1{
     line-height: 150%;
+}
+
+.topContent img {
+    width: 300px;
 }
 
 .name {

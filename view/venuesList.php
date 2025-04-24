@@ -59,6 +59,7 @@
             // for each result, populate a div with info
             foreach ($venues as $v) {
                 $name = str_replace(" ", "", $v['title']);
+                $name = str_replace("'", "", $name);
                 $echoStr = 
                     "<a class='entry-link' href='venue.php?venue={$name}+{$v['id']}'><div class='entries'>
                         <h4>{$v['title']}</h4>
