@@ -58,6 +58,7 @@ CREATE TABLE Event (
   FOREIGN KEY (id) REFERENCES Page (id)
 );
 
+/*
 CREATE TABLE ArtistAtEvent (
   artist_id INT NOT NULL,
   event_id INT NOT NULL,
@@ -89,3 +90,4 @@ CREATE TABLE EventAtVenue (
   FOREIGN KEY (venue_id) REFERENCES Venue (id),
   PRIMARY KEY (event_id, venue_id)
 );
+*/
