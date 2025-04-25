@@ -1,8 +1,10 @@
 <?php 
     // set title
+    include('../controller/PageController.php');
     include('../controller/ArtistController.php');
     $titleId = $_GET['artist'];
     $artistId = explode(" ", $titleId)[1];
+    $pageController = new PageController();
     $artistController = new ArtistController();
     $artist = $artistController->getArtist($artistId);
     $title = "Flower City Sound - {$artist['title']}";
@@ -11,9 +13,18 @@
 <div class="topContent">
     <h1 class="name"><?php echo $artist['title']; ?></h1>
     <p class="ya"><?php echo "{$artist['start']} - {$artist['year']}"; ?></p>
-    <figure class="img">
-        <img src="../assets/images/placeholder_img.jpg" alt="temp img" width="300px">
-        <figcaption>image caption(credits)</figcaption>
+    <figure class='img'>
+        <?php 
+            if($artist['thumbnail'] == NULL){
+                echo
+                "<img src=\"../assets/images/placeholder_img.png\" alt='Venue thumbnail'>
+                <figcaption>{$artist["title"]}</figcaption>";
+            } else {
+                echo
+                "<img src=\"data:image;base64," . base64_encode($artist["thumbnail"]) . "\" alt='Venue thumbnail'>
+                <figcaption>{$artist["title"]}</figcaption>";
+            }
+        ?>
     </figure>
     <div class="side">
         <div>
@@ -49,19 +60,37 @@
 </div>
 <div class="bottomContent">
     <div>
-        <h2>About [Artist name]</h2>
+        <h2>About <?php echo $artist['title']; ?></h2>
         <p><?php echo $artist['body']; ?></p>
     </div>
     <div class="galleryContainer">
         <h2>Gallery</h2>
         <div class="gallery">
             <?php
-                foreach ($pageController->getPhotos($venueId) as $photo){
-                    echo
+                foreach ($pageController->getPhotos($artistId) as $photo){
+                    if($photo['caption'] == null){
+                        echo
                         "<figure class='img'>
-                            <img width='300' src=\"data:image;base64," . base64_encode($photo["data"]) . "\">
-                            <figcaption>{$photo["caption"]} ({$photo["credits"]})</figcaption>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                            <figcaption>{$photo["credits"]}</figcaption>
                         </figure>";
+                    } else if ($photo['credits'] == null){
+                        echo
+                        "<figure class='img'>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                            <figcaption>{$photo["caption"]}</figcaption>
+                        </figure>";
+                    } else if ($photo['caption'] == null && $photo['credits'] == null){
+                        "<figure class='img'>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                        </figure>";
+                    } else {
+                        echo
+                        "<figure class='img'>
+                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                            <figcaption>{$photo["caption"]}: {$photo["credits"]}</figcaption>
+                        </figure>";
+                    }
                 }
             ?>
 

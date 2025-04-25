@@ -17,7 +17,7 @@
         <?php 
             if($venue['thumbnail'] == NULL){
                 echo
-                "<img src=\"../assets/images/placeholder_img.jpg\" alt='Venue thumbnail'>
+                "<img src=\"../assets/images/placeholder_img.png\" alt='Venue thumbnail'>
                 <figcaption>{$venue["title"]}</figcaption>";
             } else {
                 echo

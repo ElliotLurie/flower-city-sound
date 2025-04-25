@@ -39,11 +39,11 @@
 <div id="featured">
     <?php
         foreach ($artistController->getRandom(3) as $a){
-            $name = str_replace ("", " ", $a["title"]);
+            $name = str_replace (" ", "", $a["title"]);
             if($a['thumbnail'] == NULL){
                 echo
                 "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
-                    <div class='imgContainer'><img src=\"../assets/images/placeholder_img.jpg\" alt='Artist thumbnail'></div>
+                    <div class='imgContainer'><img src=\"../assets/images/placeholder_img.png\" alt='Artist thumbnail'></div>
                     <figcaption>{$a["title"]}</figcaption>
                 </figure></a>";
             } else {
@@ -64,11 +64,11 @@
     <div id="featuredVenues">
         <?php
             foreach ($venueController->getRandom(3) as $v){
-                $name = str_replace ("", " ", $v["title"]);
+                $name = str_replace (" ", "", $v["title"]);
                 if($v['thumbnail'] == NULL){
                     echo
                     "<a class='entry-link' href='venue.php?venue={$name}+{$v['id']}'><figure class='img'>
-                        <div class='imgContainer'><img src=\"../assets/images/placeholder_img.jpg\" alt='Venue thumbnail'></div>
+                        <div class='imgContainer'><img src=\"../assets/images/placeholder_img.png\" alt='Venue thumbnail'></div>
                         <figcaption>{$v["title"]}</figcaption>
                     </figure></a>";
                 } else {
@@ -91,14 +91,23 @@
     <h2>Upcoming Events</h2>
     <div id="upcomingEvents">
         <?php
-            foreach ($eventController->getRecent(5) as $e){
+            foreach ($eventController->getRecent(3) as $e){
                 $name = str_replace ("", " ", $e["title"]);
                 /* Link: href='event.php?artist={$name}+{$e['id']}'*/
-                echo
+                if($e['thumbnail'] == null){
+                    echo
+                    "<a class='entry-link'><figure class='img'>
+                        <img src=\"../assets/images/placeholder_img.png\" alt='Event thumbnail'>
+                        <figcaption><strong>{$e["title"]}</strong><br>{$e["date_start"]}-{$e["date_end"]}<br>{$e["location"]}</figcaption>
+                    </figure></a>";
+                } else {
+                    echo
                     "<a class='entry-link'><figure class='img'>
                         <img src=\"data:image;base64," . base64_encode($e["thumbnail"]) . "\" alt='Event thumbnail'>
-                        <figcaption>{$e["title"]})<br>{$e["start_date"]}</figcaption>
+                        <figcaption><strong>{$e["title"]}</strong><br>{$e["date_start"]}-{$e["date_end"]}<br>{$e["location"]}</figcaption>
                     </figure></a>";
+                }
+                
             }
         ?>
     </div>
