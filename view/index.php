@@ -40,7 +40,8 @@
     <?php
         foreach ($artistController->getRandom(3) as $a){
             $name = str_replace (" ", "", $a["title"]);
-            if($a['thumbnail'] == NULL){
+            $name = str_replace ("&", "", $name);
+            if($a['thumbnail_path'] == NULL){
                 echo
                 "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
                     <div class='imgContainer'><img src=\"../assets/images/placeholder_img.png\" alt='Artist thumbnail'></div>
@@ -49,7 +50,7 @@
             } else {
                 echo
                 "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
-                    <div class='imgContainer'><img src=\"data:image;base64," . base64_encode($a["thumbnail"]) . "\" alt='Artist thumbnail'></div>
+                    <div class='imgContainer'><img src=\"../../images/FCS_Images/{$a['thumbnail_path']}\" alt='Artist thumbnail'></div>
                     <figcaption>{$a["title"]}</figcaption>
                 </figure></a>";
             }
@@ -65,7 +66,7 @@
         <?php
             foreach ($venueController->getRandom(3) as $v){
                 $name = str_replace (" ", "", $v["title"]);
-                if($v['thumbnail'] == NULL){
+                if($v['thumbnail_path'] == NULL){
                     echo
                     "<a class='entry-link' href='venue.php?venue={$name}+{$v['id']}'><figure class='img'>
                         <div class='imgContainer'><img src=\"../assets/images/placeholder_img.png\" alt='Venue thumbnail'></div>
@@ -74,7 +75,7 @@
                 } else {
                     echo
                     "<a class='entry-link' href='venue.php?venue={$name}+{$v['id']}'><figure class='img'>
-                        <div class='imgContainer'><img src=\"data:image;base64," . base64_encode($v["thumbnail"]) . "\" alt='Venue thumbnail'></div>
+                        <div class='imgContainer'><img src=\"../../images/FCS_Images/{$v['thumbnail_path']}\" alt='Venue thumbnail'></div>
                         <figcaption>{$v["title"]}</figcaption>
                     </figure></a>";
                 }

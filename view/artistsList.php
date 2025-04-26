@@ -78,6 +78,7 @@
             // for each artist, populate a div with info
             foreach ($artists as $a) {
                 $name = str_replace(" ", "", $a['title']);
+                $name = str_replace ("&", "", $name);
                 $echoStr = 
                     "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><div class='entries'>
                         <h4>{$a['title']}</h4>

@@ -12,17 +12,26 @@
 ?>
 <div class="topContent">
     <h1 class="name"><?php echo $artist['title']; ?></h1>
-    <p class="ya"><?php echo "{$artist['start']} - {$artist['year']}"; ?></p>
+    <p class="ya">
+        <?php 
+            if($artist['year_disbanded'] == null){
+                echo "{$artist['year_founded']} - Present";
+            } else {
+                echo "{$artist['year_founded']} - {$artist['year_disbanded']}";
+            }
+             
+        ?>
+    </p>
     <figure class='img'>
         <?php 
-            if($artist['thumbnail'] == NULL){
+            if($artist['thumbnail_path'] == NULL){
                 echo
-                "<img src=\"../assets/images/placeholder_img.png\" alt='Venue thumbnail'>
-                <figcaption>{$artist["title"]}</figcaption>";
+                "<img src=\"../assets/images/placeholder_img.png\" alt='Artist thumbnail'>
+                <figcaption>No image available</figcaption>";
             } else {
                 echo
-                "<img src=\"data:image;base64," . base64_encode($artist["thumbnail"]) . "\" alt='Venue thumbnail'>
-                <figcaption>{$artist["title"]}</figcaption>";
+                "<img src=\"../../images/FCS_Images/{$artist['thumbnail_path']}\" alt='Artist thumbnail'>
+                <figcaption>{$artist["thumb_credit"]}</figcaption>";
             }
         ?>
     </figure>
@@ -33,22 +42,50 @@
         </div>
         <div>
             <h4>Publishers</h4>
-            <p><?php echo $artist['publishers']; ?></p>
+            <p>
+                <?php 
+                    if($artist['publishers'] == null){
+                        echo "N/A";
+                    } else {
+                        echo $artist['publishers']; 
+                    }
+                ?>
+            </p>
         </div>
         <div>
             <h4>Label(s)</h4>
-            <p><?php echo $artist['labels']; ?></p>
+            <p>
+                <?php 
+                    if($artist['labels'] == null){
+                        echo "N/A";
+                    } else {
+                        echo $artist['labels']; 
+                    }
+                ?>
+            </p>
         </div>
         <div>
             <h4>Connections</h4>
-            <p><?php echo $artist['connections']; ?></p>
+            <p>
+                <?php 
+                    if($artist['connections'] == null){
+                        echo "N/A";
+                    } else {
+                        $artist['connections']; 
+                    }
+                ?>
+            </p>
         </div>
     </div>
     <div class="bottomContainer">
         <div class="bottom">
             <div>
-                <h4>Members</h4>
-                <p><?php echo $artist['members']; ?></p>
+                <?php
+                    if($artist['members'] != null){
+                        echo "<h4>Members</h4>
+                            <p>{$artist['members']}</p>";
+                    }
+                ?>
             </div>
             <div>
                 <h4>Genres</h4>
@@ -68,27 +105,27 @@
         <div class="gallery">
             <?php
                 foreach ($pageController->getPhotos($artistId) as $photo){
-                    if($photo['caption'] == null){
+                    if($photo['cap'] == null){
                         echo
                         "<figure class='img'>
-                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
-                            <figcaption>{$photo["credits"]}</figcaption>
+                            <img width='300' src=\"../../images/FCS_Images/{$photo['img_path']}\">
+                            <figcaption>{$photo["img_credit"]}</figcaption>
                         </figure>";
-                    } else if ($photo['credits'] == null){
+                    } else if ($photo['img_credit'] == null){
                         echo
                         "<figure class='img'>
-                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
-                            <figcaption>{$photo["caption"]}</figcaption>
+                            <img width='300' src=\"../../images/FCS_Images/{$photo['img_path']}\">
+                            <figcaption>{$photo["cap"]}</figcaption>
                         </figure>";
-                    } else if ($photo['caption'] == null && $photo['credits'] == null){
+                    } else if ($photo['cap'] == null && $photo['img_credit'] == null){
                         "<figure class='img'>
-                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
+                            <img width='300' src=\"../../images/FCS_Images/{$photo['img_path']}\">
                         </figure>";
                     } else {
                         echo
                         "<figure class='img'>
-                            <img width='300' src=\"data:image;base64," . base64_encode($photo["image"]) . "\">
-                            <figcaption>{$photo["caption"]}: {$photo["credits"]}</figcaption>
+                            <img width='300' src=\"../../images/FCS_Images/{$photo['img_path']}\">
+                            <figcaption>{$photo["cap"]}: {$photo["img_credit"]}</figcaption>
                         </figure>";
                     }
                 }

@@ -5,37 +5,16 @@
 <h1 class="top" id="about">About Flower City Sound</h1>
 <div id="aboutTxt">
     <p>
-        PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, consectetur adipiscing 
-        elit, sed do eiusmod tempor incididunt ut labore et 
-        dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip 
-        ex ea commodo consequat. Duis aute irure dolor in 
-        reprehenderit in voluptate velit esse cillum dolore 
-        eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia 
-        deserunt mollit anim id est laborum.
+    Rochester has a rich musical history that deserves to be preserved and cultivated. There’s live music all around the city every night, countless music hobbyists, budding creators, and great musicians with a lot of influence and reach. Unfortunately, much of the local music scene is held up by word of mouth, leaving many unsure of where to begin when trying to discover and market local music.
     </p>
     <p>
-        PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, consectetur adipiscing 
-        elit, sed do eiusmod tempor incididunt ut labore et 
-        dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip 
-        ex ea commodo consequat. Duis aute irure dolor in 
-        reprehenderit in voluptate velit esse cillum dolore 
-        eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia 
-        deserunt mollit anim id est laborum.
+    Flower City Sound is a centralized archive of musicians and venues around Rochester. It’s an open source and crowd sourced website that allows the community to help maintain and grow Rochester’s local music scene. Flower City Sound also acts as an informational hub to learn how to get involved in upcoming events.
     </p>
     <p>
-        PLACEHOLDER TEXT -- Lorem ipsum dolor sit amet, consectetur adipiscing 
-        elit, sed do eiusmod tempor incididunt ut labore et 
-        dolore magna aliqua. Ut enim ad minim veniam, quis 
-        nostrud exercitation ullamco laboris nisi ut aliquip 
-        ex ea commodo consequat. Duis aute irure dolor in 
-        reprehenderit in voluptate velit esse cillum dolore 
-        eu fugiat nulla pariatur. Excepteur sint occaecat 
-        cupidatat non proident, sunt in culpa qui officia 
-        deserunt mollit anim id est laborum.
+    Join us in preserving and amplifying the music of the Flower City! We invite you to contribute to our archive and come learn about the well known and indie music spaces as well as underground, hidden gems. 
+    </p>
+    <p>
+    Flower City Sound was created as a capstone project at the Rochester Institute of Technology within the Humanities, Computing and Design program. 
     </p>
 </div>
 <div class="team">
@@ -95,9 +74,22 @@
         </div>
     </div>
     <h3>Honorable Mentions</h3>
-    <p class="members">
-        Any others who helped out, clients, venues/people 
-        who gave us stuff for Imagine, etc
-    </p>
+    <div class="members">
+        <div>
+            <p>
+                <strong>Tommy Nguyen</strong>
+                <br>Photos for brochure
+            </p>
+        </div>
+        <div>
+            <p>
+                <strong>Greg Stella</strong>
+                <br>Photos for brochure/poster
+            </p>
+        </div>
+    </div>
+</div>
+<div>
+    <p>Thanks for visiting!</p>
 </div>
 <?php include("../view/include/footer.php") ?>

@@ -179,6 +179,9 @@ h1 {
 
 #featured img, #featuredVenues img {
     width: 300px;
+    height: 300px;
+    object-fit: scale-down;
+    background-color: #C8A2C8;
 }
 
 #featured figure, #featuredVenues figure, #upcomingEvents figure {
@@ -345,6 +348,10 @@ hr {
     grid-area: img;
 }
 
+.img figcaption {
+    width: 300px;
+}
+
 .side {
     grid-area: side;
     display: grid;
@@ -509,7 +516,19 @@ hr {
 .addRes{
     display: flex;
     justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addRes div {
+    width: 30%;
     margin: 5%;
+}
+
+.addRes ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (max-width: 790px) {

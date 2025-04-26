@@ -12,9 +12,10 @@
 <body>
     <div id="header">
         <div id="navCont">
-            <a href="../view/index.php" id="logo"><img src="../assets/images/placeholder_img.jpg" width="60px" height="40px"/></a>
+            <!-- <a href="../view/index.php" id="logo"><img src="../assets/images/placeholder_img.jpg" width="60px" height="40px"/></a> -->
             <div id="nav">
                 <ul>
+                    <li><a href="../view/index.php">Home</a></li>
                     <li><a href="../view/about.php">About</a></li>
                     <li><a href="../view/artistsList.php">Artists</a></li>
                     <li><a href="../view/venuesList.php">Venues</a></li>
