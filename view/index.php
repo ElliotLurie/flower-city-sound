@@ -50,7 +50,7 @@
             } else {
                 echo
                 "<a class='entry-link' href='artist.php?artist={$name}+{$a['id']}'><figure class='img'>
-                    <div class='imgContainer'><img src=\"../../images/FCS_Images/{$a['thumbnail_path']}\" alt='Artist thumbnail'></div>
+                    <div class='imgContainer'><img src=\"{$a['thumbnail_path']}\" alt='Artist thumbnail'></div>
                     <figcaption>{$a["title"]}</figcaption>
                 </figure></a>";
             }
