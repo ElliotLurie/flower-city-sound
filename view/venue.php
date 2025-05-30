@@ -30,7 +30,7 @@
                 <figcaption>No image available</figcaption>";
             } else {
                 echo
-                "<img src='../../images/FCS_Images/{$venue['thumbnail_path']}' alt='Venue thumbnail'>
+                "<img src='{$venue['thumbnail_path']}' alt='Venue thumbnail'>
                 <figcaption>{$venue["thumb_credit"]}</figcaption>";
             }
         ?>
